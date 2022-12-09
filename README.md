@@ -7,6 +7,7 @@
 
 [![Travis build
 status](https://travis-ci.com/Minh-AnhHuynh/RStudioBackupPrefs.svg?branch=master)](https://travis-ci.com/Minh-AnhHuynh/RStudioBackupPrefs)
+[![R-CMD-check](https://github.com/Minh-AnhHuynh/RStudioBackupPrefs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Minh-AnhHuynh/RStudioBackupPrefs/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of RStudioBackupPrefs is to …
