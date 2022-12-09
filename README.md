@@ -6,10 +6,24 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/Minh-AnhHuynh/RStudioBackupPrefs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Minh-AnhHuynh/RStudioBackupPrefs/actions/workflows/R-CMD-check.yaml)
+
 <!-- badges: end -->
 
 The goal of RStudioBackupPrefs is to provide an easy and online way to
-backup and restore your R Studio preferences.
+backup and restore your R Studio preferences. For reference, the
+following files are backed up :
+
+- `addins.json`
+
+- `rstudio_bindings.json`
+
+- `rstudio-prefs.json`
+
+- `r.snippets`
+
+Credits to
+[pat-s/rstudioSettings](https://github.com/pat-s/rstudioSettings.git)
+for the idea and getting inspiration from the backup code.
 
 ## Installation
 
@@ -21,12 +35,15 @@ You can install the development version of RStudioBackupPrefs from
 devtools::install_github("Minh-AnhHuynh/RStudioBackupPrefs")
 ```
 
-Additionally I am fond of the `librarian` package, you can install with
-it:
+Additionally I am fond of the `librarian` package, you can install the
+package with:
 
 ``` r
-# install.packages("librarian") librarian::shelf() will install or load the
-# package if already installed. You can queue up multiple package in one line.
+# install.packages("librarian") 
+
+# librarian::shelf() will install or load the package if already installed.
+# You can queue up multiple package in one line.
+
 librarian::shelf(Minh-AnhHuynh/RStudioBackupPrefs)
 ```
 
@@ -45,6 +62,23 @@ start_import_prefs(pull_github = TRUE, clone_git = FALSE)
 
 # Use clone_git = TRUE for first time usage
 start_import_prefs(clone_git = TRUE)
+```
+
+To use the GitHub functionalities, you need to have an initiated
+repository. Simply initiate one with :
+
+``` r
+# Assuming you're in a repository:
+usethis::use_git()
+usethis::use_github()
+
+# Optional:
+usethis::git_vaccinate()
+
+# Set your credentials if needed:
+gitcreds::gitcreds_set()
+
+# Make sure to put your user.name and user.email in global config
 ```
 
 <!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>. -->
