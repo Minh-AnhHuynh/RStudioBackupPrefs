@@ -1,5 +1,14 @@
-librarian::shelf(gert, glue, here)
 
+#' Upload preferences to GitHub
+#'
+#' Add, commit and push your .json files automatically.
+#'
+#' @param preference_path_name string. Relative file path name
+#'
+#' @return Will upload your .json files to your initiated git repository.
+#' @export
+#'
+#' @examples upload_prefs_to_github()
 upload_prefs_to_github <- function(preference_path_name = "rstudio-preferences") {
   local_prefs <- glue("{here()}/{preference_path_name}")
   prefs_files <- list.files(local_prefs)

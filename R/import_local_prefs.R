@@ -1,9 +1,16 @@
-librarian::shelf(glue, usethis, fs, here)
 
+#' Import local preferences files to R Studio
+#'
+#' @param preference_path_name string: Relative folder_path where .json files are contained.
+#'
+#' @return Your settings are imported.
+#' @export
+#'
+#' @examples import_local_prefs()
 import_local_prefs <-
-  function(preference_path_name = "rstudio-preferences") {
+  function(preference_path_name = "rstudio_preferences") {
     pref_path <- glue("{usethis:::rstudio_config_path()}")
-    pref_files <- list.files(glue("{here()}/rstudio-preferences/"))
+    pref_files <- list.files(glue("{here()}/{preference_path_name}/"))
 
     # List the file names and only add existing files
     # For example, r.snippets might not exist

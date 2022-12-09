@@ -1,4 +1,3 @@
-librarian::shelf(usethis, glue, here)
 
 files_to_copy <- function() {
   pref_path <- glue("{usethis:::rstudio_config_path()}")
@@ -17,9 +16,17 @@ files_to_copy <- function() {
 }
 
 
-copy_files_to_local <- function() {
+#' Copy backup files to a chosen local folder
+#'
+#' @param preference_path_name string: Use a relative file path.
+#'
+#' @return Return addins.json, r.snippets, rstudio_bindings.json, prefs.json in default folder (rstudio-preferences) which can be modified.
+#' @export
+#'
+#' @examples copy_files_to_local()
+copy_files_to_local <- function(preference_path_name = "rstudio_preferences") {
   files_to_copy_name <- files_to_copy()
-  local_prefs <- glue("{here()}/rstudio-preferences")
+  local_prefs <- glue("{here()}/{preference_path_name}")
   # Copy files and remove .bak
   file_copy(files_to_copy_name, local_prefs, overwrite = TRUE)
   prefs_name <- list.files(local_prefs, full.names = TRUE)

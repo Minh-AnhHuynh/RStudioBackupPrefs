@@ -1,59 +1,70 @@
-if (!requireNamespace("librarian", quietly = TRUE)) {
-  install.packages("librarian")
-}
-librarian::shelf(glue, usethis, fs, cli, yesno, here)
 
-pref_path <-
-  backup_prefs <- function(pref_path = glue("{usethis:::rstudio_config_path()}"),
-                           open_folder = FALSE) {
-    # keybindings
-    if (fs::file_exists(glue::glue("{pref_path}/keybindings/rstudio_bindings.json"))) {
-      fs::file_copy(
-        glue::glue("{pref_path}/keybindings/rstudio_bindings.json"),
-        glue::glue("{pref_path}/keybindings/rstudio_bindings.json.bak"),
-        overwrite = TRUE
-      )
-      cli::cli_alert_success(
-        "Backed up old {.file rstudio_bindings.json} to
+#' Backup of R Studio preferences.
+#'
+#' Use \code{usethis:::rstudio_config_path()} to obtain your preference path.
+#'
+#' @param open_prefs_folder logical: TRUE or FALSE
+#'
+#' @return Return keybindings, preferences and snippets in .bak in your R Studio
+#'   config path.
+#' @export
+#'
+#' @examples
+#' Simply use backup_prefs() to backup your preferences.
+#' Use backup_prefs(open_prefs_folder = TRUE) to access your backup files
+#'
+
+
+backup_prefs <- function(open_prefs_folder = FALSE) {
+  # keybindings
+  pref_path <- glue::glue("{usethis:::rstudio_config_path()}")
+  if (fs::file_exists(glue::glue("{pref_path}/keybindings/rstudio_bindings.json"))) {
+    fs::file_copy(
+      glue::glue("{pref_path}/keybindings/rstudio_bindings.json"),
+      glue::glue("{pref_path}/keybindings/rstudio_bindings.json.bak"),
+      overwrite = TRUE
+    )
+    cli::cli_alert_success(
+      "Backed up old {.file rstudio_bindings.json} to
         {.file {pref_path}/keybindings/rstudio_bindings.json.bak}."
-      )
-    }
-    # addins
-    if (fs::file_exists(glue::glue("{pref_path}/keybindings/addins.json"))) {
-      fs::file_copy(
-        glue::glue("{pref_path}/keybindings/addins.json"),
-        glue::glue("{pref_path}/keybindings/addins.json.bak"),
-        overwrite = TRUE
-      )
-      cli::cli_alert_success(
-        "Backed up old {.file addins.json} to
-          {.file {pref_path}/keybindings/addins.json}."
-      )
-    }
-    # rstudio-prefs
-    if (fs::file_exists(glue::glue("{pref_path}/rstudio-prefs.json"))) {
-      fs::file_copy(
-        glue::glue("{pref_path}/rstudio-prefs.json"),
-        glue::glue("{pref_path}/rstudio-prefs.json.bak"),
-        overwrite = TRUE
-      )
-      cli::cli_alert_success(
-        "Backed up old {.file rstudio-prefs.json} to
-          {.file {pref_path}/rstudio-prefs.json.bak}."
-      )
-    }
-    # snippets
-    fs::dir_create(glue::glue("{pref_path}/snippets"), recurse = TRUE)
-    if (fs::file_exists(glue::glue("{pref_path}/snippets/r.snippets"))) {
-      fs::file_copy(
-        glue::glue("{pref_path}/snippets/r.snippets"),
-        glue::glue("{pref_path}/keybindings/r.snippets.bak"),
-        overwrite = TRUE
-      )
-      cli::cli_alert_success("Backed up old {.file r.snippets} to
-          {.file {pref_path}/r.snippets.bak}.")
-    }
-    if (open_folder == TRUE) {
-      shell.exec(glue("{usethis:::rstudio_config_path()}"))
-    }
+    )
   }
+  # addins
+  if (fs::file_exists(glue::glue("{pref_path}/keybindings/addins.json"))) {
+    fs::file_copy(
+      glue::glue("{pref_path}/keybindings/addins.json"),
+      glue::glue("{pref_path}/keybindings/addins.json.bak"),
+      overwrite = TRUE
+    )
+    cli::cli_alert_success(
+      "Backed up old {.file addins.json} to
+          {.file {pref_path}/keybindings/addins.bak}."
+    )
+  }
+  # rstudio-prefs
+  if (fs::file_exists(glue::glue("{pref_path}/rstudio-prefs.json"))) {
+    fs::file_copy(
+      glue::glue("{pref_path}/rstudio-prefs.json"),
+      glue::glue("{pref_path}/rstudio-prefs.json.bak"),
+      overwrite = TRUE
+    )
+    cli::cli_alert_success(
+      "Backed up old {.file rstudio-prefs.json} to
+          {.file {pref_path}/rstudio-prefs.json.bak}."
+    )
+  }
+  # snippets
+  fs::dir_create(glue::glue("{pref_path}/snippets"), recurse = TRUE)
+  if (fs::file_exists(glue::glue("{pref_path}/snippets/r.snippets"))) {
+    fs::file_copy(
+      glue::glue("{pref_path}/snippets/r.snippets"),
+      glue::glue("{pref_path}/keybindings/r.snippets.bak"),
+      overwrite = TRUE
+    )
+    cli::cli_alert_success("Backed up old {.file r.snippets} to
+          {.file {pref_path}/r.snippets.bak}.")
+  }
+  if (open_prefs_folder == TRUE) {
+    shell.exec(glue("{usethis:::rstudio_config_path()}"))
+  }
+}
