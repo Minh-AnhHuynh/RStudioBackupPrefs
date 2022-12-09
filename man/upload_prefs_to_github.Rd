@@ -4,7 +4,7 @@
 \alias{upload_prefs_to_github}
 \title{Upload preferences to GitHub}
 \usage{
-upload_prefs_to_github(preference_path_name = "rstudio-preferences")
+upload_prefs_to_github(preference_path_name = "rstudio_preferences")
 }
 \arguments{
 \item{preference_path_name}{string. Relative file path name}

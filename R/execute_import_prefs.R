@@ -1,46 +1,39 @@
 
 #' Start the backup process
 #'
+#' @param github_backup boolean: Upload file to github.
+#'
 #' @return Function will start backing up your files in their folder to .bak and
 #'   ask you if you want to back them up to github
 #' @export
 #'
-#' @examples start_backup_prefs()
+#' @examples start_backup_prefs(github_backup = FALSE)
 #'
-
-start_backup_prefs <- function() {
-  source("R/backup_prefs.R")
-  local_prefs <- glue("{here()}/rstudio-preferences")
+start_backup_prefs <- function(github_backup) {
+  local_prefs <- glue::glue("{here()}/rstudio_preferences")
   backup_prefs()
 
-
-  upload_choice <-
-    yesno("Would you like to backup your files to your github repository ?")
-  if (upload_choice == TRUE) {
-    source("R/copy_to_local_prefs.R")
-    source("R/upload_prefs_github.R")
+  if (github_backup == TRUE) {
     copy_files_to_local()
     upload_prefs_to_github()
   }
 }
 
 
-#' Start import
+#' Import preferences from GitHub
+#' Import preferences by cloning a link or pulling from your GitHub
 #'
 #' @param pull_github boolean. Default is TRUE.
+#' @param clone_git boolean: Default is FALSE. Clone git for first time usage.
 #'
 #' @return Pull your github and import your preferences to the R Studio preference folder.
 #' @export
 #'
 #' @examples start_import_prefs()
 #'
-
-
-start_import_prefs <- function(pull_github = TRUE) {
+start_import_prefs <- function(pull_github = TRUE, clone_git = FALSE) {
   if (pull_github == TRUE) {
-    source("R/import_from_github.R")
-  import_from_github()
+    import_from_github(clone_git)
   }
-  source("R/import_local_prefs.R")
   import_local_prefs()
 }

@@ -2,18 +2,22 @@
 % Please edit documentation in R/execute_import_prefs.R
 \name{start_import_prefs}
 \alias{start_import_prefs}
-\title{Start import}
+\title{Import preferences from GitHub
+Import preferences by cloning a link or pulling from your GitHub}
 \usage{
-start_import_prefs(pull_github = TRUE)
+start_import_prefs(pull_github = TRUE, clone_git = FALSE)
 }
 \arguments{
 \item{pull_github}{boolean. Default is TRUE.}
+
+\item{clone_git}{boolean: Default is FALSE. Clone git for first time usage.}
 }
 \value{
 Pull your github and import your preferences to the R Studio preference folder.
 }
 \description{
-Start import
+Import preferences from GitHub
+Import preferences by cloning a link or pulling from your GitHub
 }
 \examples{
 start_import_prefs()

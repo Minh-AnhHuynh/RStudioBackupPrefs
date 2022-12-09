@@ -9,12 +9,8 @@
 #'   config path.
 #' @export
 #'
-#' @examples
-#' Simply use backup_prefs() to backup your preferences.
-#' Use backup_prefs(open_prefs_folder = TRUE) to access your backup files
+#' @examples backup_prefs(open_prefs_folder = FALSE)
 #'
-
-
 backup_prefs <- function(open_prefs_folder = FALSE) {
   # keybindings
   pref_path <- glue::glue("{usethis:::rstudio_config_path()}")

@@ -3,15 +3,9 @@
 \name{import_from_github}
 \alias{import_from_github}
 \title{Import preferences from a github url}
-\usage{
-import_from_github()
-}
 \value{
 Clone a git repository from url or pull from your own git repository.
 }
 \description{
 Import preferences from a github url
-}
-\examples{
-import_from_github()
 }

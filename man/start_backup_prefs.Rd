@@ -4,7 +4,10 @@
 \alias{start_backup_prefs}
 \title{Start the backup process}
 \usage{
-start_backup_prefs()
+start_backup_prefs(github_backup)
+}
+\arguments{
+\item{github_backup}{boolean: Upload file to github.}
 }
 \value{
 Function will start backing up your files in their folder to .bak and
@@ -14,6 +17,6 @@ Function will start backing up your files in their folder to .bak and
 Start the backup process
 }
 \examples{
-start_backup_prefs()
+start_backup_prefs(github_backup = FALSE)
 
 }

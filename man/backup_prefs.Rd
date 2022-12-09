@@ -17,7 +17,6 @@ Return keybindings, preferences and snippets in .bak in your R Studio
 Use \code{usethis:::rstudio_config_path()} to obtain your preference path.
 }
 \examples{
-Simply use backup_prefs() to backup your preferences.
-Use backup_prefs(open_prefs_folder = TRUE) to access your backup files
+backup_prefs(open_prefs_folder = FALSE)
 
 }

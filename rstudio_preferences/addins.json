@@ -1,0 +1,12 @@
+{
+    "insertPipeOperator": "Ctrl+'",
+    "saveSourceDoc": "Ctrl+S",
+    "activateEnvironment": "Ctrl+G",
+    "activateSource": "Ctrl+7",
+    "activateConsole": "Ctrl+2",
+    "activateHelp": "Ctrl+H",
+    "activatePackages": "Ctrl+-",
+    "helpSearch": "Ctrl+Shift+H",
+    "styler::style_active_file": "Ctrl+Shift+T",
+    "extraInserts::insertIn": "Ctrl+I"
+}
