@@ -54,7 +54,7 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>preference_path_name</dt>
-<dd><p>string: Use a relative file path.</p></dd>
+<dd><p>string: Use a relative file path, don't add a "/" at the end</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -67,7 +67,12 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">copy_files_to_local</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Length of `path` must equal length of `new_path`</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Preferences files copied to</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> /home/runner/work/RStudioBackupPrefs/RStudioBackupPrefs/rstudio_preferences//addins.json,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> /home/runner/work/RStudioBackupPrefs/RStudioBackupPrefs/rstudio_preferences//rstudio-prefs.json,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> and</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> /home/runner/work/RStudioBackupPrefs/RStudioBackupPrefs/rstudio_preferences//rstudio_bindings.json</span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
