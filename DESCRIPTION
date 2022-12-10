@@ -10,6 +10,8 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests: 
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 URL: https://github.com/Minh-AnhHuynh/RStudioBackupPrefs,
@@ -17,11 +19,13 @@ URL: https://github.com/Minh-AnhHuynh/RStudioBackupPrefs,
 BugReports: https://github.com/Minh-AnhHuynh/RStudioBackupPrefs/issues
 RoxygenNote: 7.2.3
 Imports:
-  glue,
-  fs,
-  cli,
-  yesno,
-  here,
-  gert,
-  usethis,
-  stringr
+    glue,
+    fs,
+    cli,
+    yesno,
+    here,
+    gert,
+    usethis,
+    stringr,
+Roxygen: list(markdown = TRUE)
+VignetteBuilder: knitr

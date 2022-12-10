@@ -4,17 +4,19 @@
 \alias{import_local_prefs}
 \title{Import local preferences files to R Studio}
 \usage{
-import_local_prefs(preference_path_name = "rstudio_preferences")
+import_local_prefs(preference_path = "/rstudio_preferences")
 }
 \arguments{
-\item{preference_path_name}{string: Relative folder_path where .json files are contained.}
+\item{preference_path}{string: Relative folder_path where .json files are
+contained.}
 }
 \value{
-Your settings are imported.
+Import addins.json, rstudio_bindings.json, r.snippets to the
+keybindings folder and rstudio-prefs.json to the RStudio folder
 }
 \description{
 Import local preferences files to R Studio
 }
 \examples{
-import_local_prefs()
+import_local_prefs("/rstudio_preferences")
 }

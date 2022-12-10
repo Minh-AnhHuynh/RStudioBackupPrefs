@@ -1,12 +1,18 @@
 
 #' Backup of R Studio preferences.
 #'
-#' Use \code{usethis:::rstudio_config_path()} to obtain your preference path.
+#' Copy rstudio_bindings.json, addins.json rstudio-bindings.json and r.snippets
+#' to .bak in your R Studio config path.
 #'
-#' @param open_prefs_folder logical: TRUE or FALSE
 #'
-#' @return Return keybindings, preferences and snippets in .bak in your R Studio
-#'   config path.
+#' @details Use `usethis:::rstudio_config_path()` to obtain your preference
+#'   path.
+#'
+#' @param open_prefs_folder logical: TRUE or FALSE. Open the preference folder
+#'   at the end of backing up for convenience.
+#'
+#' @return Copy rstudio_bindings.json, addins.json rstudio-bindings.json and
+#'   r.snippets to .bak in your R Studio config path.
 #' @export
 #'
 #' @examples backup_prefs(open_prefs_folder = FALSE)

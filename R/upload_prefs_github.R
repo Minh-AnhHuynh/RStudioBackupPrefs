@@ -1,21 +1,26 @@
 
 #' Upload preferences to GitHub
 #'
-#' Add, commit and push your .json files automatically.
+#' Add, commit and push your .json files automatically with the name
 #'
-#' @param preference_path_name string. Relative file path name
+#' @param git_message string. Enter a git commit message.
+#' @param preference_path string. Relative file path name
 #'
-#' @return Will upload your .json files to your initiated git repository.
+#' @return Upload your .json files to currently active git repository.
 #' @export
+#' @examples \dontrun{
+#' upload_prefs_to_github("/rstudio_preferences")
+#' upload_prefs_to_github("/rstudio_preferences", git_message = "Backup preferences")
+#' }
 #'
-#' @examples upload_prefs_to_github()
-upload_prefs_to_github <- function(preference_path_name = "rstudio_preferences") {
-  local_prefs <- glue::glue("{here::here()}/{preference_path_name}")
+upload_prefs_to_github <- function(preference_path = "/rstudio_preferences",
+                                   git_message = "Backup of R Studio preferences on {Sys.Date()}.") {
+  local_prefs <- glue::glue("{here::here()}{preference_path}")
   prefs_files <- list.files(local_prefs)
 
   # Add files, commit and push
-  git_add(glue::glue("{preference_path_name}/{prefs_files}")) # Relative path names
+  git_add(glue::glue("{preference_path}/{prefs_files}")) # Relative path names
 
-  git_commit(message = glue::glue("Backup of R Studio preference files on {Sys.Date()}."))
+  git_commit(message = glue::glue(git_message))
   git_push()
 }

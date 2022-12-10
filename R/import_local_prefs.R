@@ -1,30 +1,31 @@
 
 #' Import local preferences files to R Studio
 #'
-#' @param preference_path_name string: Relative folder_path where .json files are contained.
+#' @param preference_path string: Relative folder_path where .json files are
+#'   contained.
 #'
-#' @return Your settings are imported.
+#' @return Import addins.json, rstudio_bindings.json, r.snippets to the
+#'   keybindings folder and rstudio-prefs.json to the RStudio folder
 #' @export
-#'
-#' @examples import_local_prefs()
+#' @examples import_local_prefs("/rstudio_preferences")
 import_local_prefs <-
-  function(preference_path_name = "rstudio_preferences") {
+  function(preference_path = "/rstudio_preferences") {
     pref_path <- glue::glue("{usethis:::rstudio_config_path()}")
-    pref_files <- list.files(glue::glue("{here::here()}/{preference_path_name}/"))
+    pref_files <- list.files(glue::glue("{here::here()}{preference_path}"))
 
     # List the file names and only add existing files
     # For example, r.snippets might not exist
     # use vector1[vector2] to only retain TRUE value.
-    list <- list.files(glue::glue("{preference_path_name}"))
+    list <- list.files(glue::glue("{preference_path}"))
     keybinding_files <-
       list[list %in% c("addins.json", "rstudio_bindings.json", "r.snippets")]
     rstudio_pref <- list[list %in% c("rstudio-prefs.json")]
 
     # Get full path
     keybind_path <-
-      (glue::glue("{here::here()}/{preference_path_name}/{keybinding_files}"))
+      (glue::glue("{here::here()}/{preference_path}/{keybinding_files}"))
     rstudio_pref_path <-
-      (glue::glue("{here::here()}/{preference_path_name}/{rstudio_pref}"))
+      (glue::glue("{here::here()}/{preference_path}/{rstudio_pref}"))
 
     # Get full pathnam
     list.files(glue::glue("{pref_path}/keybindings/"), full.names = TRUE)

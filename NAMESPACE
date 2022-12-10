@@ -2,7 +2,6 @@
 
 export(backup_prefs)
 export(copy_files_to_local)
-export(files_to_copy)
 export(import_from_github)
 export(import_local_prefs)
 export(start_backup_prefs)

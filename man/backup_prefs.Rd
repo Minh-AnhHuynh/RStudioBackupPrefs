@@ -7,14 +7,20 @@
 backup_prefs(open_prefs_folder = FALSE)
 }
 \arguments{
-\item{open_prefs_folder}{logical: TRUE or FALSE}
+\item{open_prefs_folder}{logical: TRUE or FALSE. Open the preference folder
+at the end of backing up for convenience.}
 }
 \value{
-Return keybindings, preferences and snippets in .bak in your R Studio
-  config path.
+Copy rstudio_bindings.json, addins.json rstudio-bindings.json and
+r.snippets to .bak in your R Studio config path.
 }
 \description{
-Use \code{usethis:::rstudio_config_path()} to obtain your preference path.
+Copy rstudio_bindings.json, addins.json rstudio-bindings.json and r.snippets
+to .bak in your R Studio config path.
+}
+\details{
+Use \code{usethis:::rstudio_config_path()} to obtain your preference
+path.
 }
 \examples{
 backup_prefs(open_prefs_folder = FALSE)

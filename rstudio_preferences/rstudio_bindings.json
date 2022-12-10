@@ -6,5 +6,6 @@
     "activateConsole": "Ctrl+2",
     "activateHelp": "Ctrl+H",
     "activatePackages": "Ctrl+-",
-    "helpSearch": "Ctrl+Shift+H"
+    "helpSearch": "Ctrl+Shift+H",
+    "goToFileFunction": "Ctrl+;"
 }

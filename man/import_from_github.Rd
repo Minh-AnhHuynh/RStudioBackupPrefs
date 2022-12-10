@@ -2,10 +2,23 @@
 % Please edit documentation in R/import_from_github.R
 \name{import_from_github}
 \alias{import_from_github}
-\title{Import preferences from a github url}
+\title{Import preferences from a GitHub url}
+\usage{
+import_from_github(clone_git = FALSE)
+}
+\arguments{
+\item{clone_git}{boolean. TRUE or FALSE.}
+}
 \value{
-Clone a git repository from url or pull from your own git repository.
+Clone or pull from GitHub link.
 }
 \description{
-Import preferences from a github url
+Clone a git repository from url or pull from your own git repository which
+should ideally contain your backup preference files.
+}
+\examples{
+\dontrun{
+import_from_github()
+import_from_github(clone_git = TRUE)
+}
 }

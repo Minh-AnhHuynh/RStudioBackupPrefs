@@ -29,5 +29,6 @@
     "console_double_click_select": true,
     "style_diagnostics": true,
     "source_with_echo": true,
-    "warn_variable_defined_but_not_used": true
+    "warn_variable_defined_but_not_used": true,
+    "save_files_before_build": true
 }

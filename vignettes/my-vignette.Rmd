@@ -1,7 +1,19 @@
+---
+title: "RStudioBackupPrefs Vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{my-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
-# RStudioBackupPrefs
 
 <!-- badges: start -->
 
@@ -13,13 +25,13 @@ The goal of RStudioBackupPrefs is to provide an easy and online way to
 backup and restore your R Studio preferences. For reference, the
 following files are backed up :
 
-- `addins.json`
+-   `addins.json`
 
-- `rstudio_bindings.json`
+-   `rstudio_bindings.json`
 
-- `rstudio-prefs.json`
+-   `rstudio-prefs.json`
 
-- `r.snippets`
+-   `r.snippets`
 
 Credits to
 [pat-s/rstudioSettings](https://github.com/pat-s/rstudioSettings.git)
@@ -77,6 +89,7 @@ usethis::git_vaccinate()
 
 # Set your credentials if needed:
 gitcreds::gitcreds_set()
+
 ```
 
 Make sure to put your user.name and user.email in global config. To do
@@ -86,4 +99,5 @@ so, go to Terminal and write :
 git init
 git config --global user.name "YOUR FULL NAME"
 git config --global user.email "YOUR EMAIL ADDRESS"
+
 ```
