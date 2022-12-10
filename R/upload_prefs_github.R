@@ -1,10 +1,10 @@
 
 #' Upload preferences to GitHub
 #'
-#' Add, commit and push your .json files automatically with the name
+#' Add, commit and push your .json files automatically with a folder name.
 #'
 #' @param git_message string. Enter a git commit message.
-#' @param preference_path string. Relative file path name
+#' @param preference_path string. Relative file path name.
 #'
 #' @return Upload your .json files to currently active git repository.
 #' @export
