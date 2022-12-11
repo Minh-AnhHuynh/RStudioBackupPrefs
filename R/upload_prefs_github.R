@@ -1,5 +1,3 @@
-
-
 #' Upload preferences to GitHub
 #'
 #' Add, commit and push your .json files automatically with the name
