@@ -7,14 +7,14 @@
 import_from_github(clone_git = FALSE)
 }
 \arguments{
-\item{clone_git}{boolean. TRUE or FALSE.}
+\item{clone_git}{boolean. Use this option if your folder doesn't have an initiated repository.}
 }
 \value{
 Clone or pull from GitHub link.
 }
 \description{
-Clone a git repository from url or pull from your own git repository which
-should ideally contain your backup preference files.
+Clone or pull from your own git repository which
+should contain your backup preference files.
 }
 \examples{
 \dontrun{

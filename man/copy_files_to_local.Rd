@@ -4,7 +4,7 @@
 \alias{copy_files_to_local}
 \title{Copy backup files to a chosen local folder}
 \usage{
-copy_files_to_local(preference_path = "rstudio_preferences")
+copy_files_to_local(preference_path = "R/rstudio_preferences/")
 }
 \arguments{
 \item{preference_path}{string: Use a relative file path, don't add a "/" at

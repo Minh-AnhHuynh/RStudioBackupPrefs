@@ -1,7 +1,6 @@
 #' Start the backup process
 #'
-#' Function will start backing up your files in their folder to .bak and ask you
-#' if you want to back them up to GitHub. Make sure to have a git initiated
+#' Function will start backing up your files in their folder to .bak. Use Make sure to have a git initiated
 #' repository.
 #'
 #' @details Function wrapper using `backup_prefs()`. if github_backup = TRUE,
@@ -9,23 +8,40 @@
 #'   `upload_prefs_to_github()`
 #'
 #' @param github_backup boolean: Upload file to github.
-#' @param preference_path string: Path to local backup folder.
+#' @param preference_path string: Path to local backup folder
+#' @param git_message string: Your git commit message. Default is Backup of R Studio preferences on `Sys.Date()`."
+#' @param repository string. Defaults to the current git repository.
+#' @param copy_to_local boolean: Copy your .json files to local if TRUE.
+#' @param open_backup_path boolean: Open the default backup folder for convenience if TRUE.
 #'
 #' @return Copy rstudio_bindings.json, addins.json rstudio-bindings.json and
 #'   r.snippets to .bak files in their native config folder. Then copy files to
 #'   working directory in path and executes git push if `github_backup = TRUE`
 #' @export
 #'
-#' @examples \dontrun{
-#' start_backup_prefs(github_backup = TRUE)
-#' }
+#' @examplesIf has_git_repository()
+#' # Leave defaults to simply backup.
+#' start_backup_prefs()
 #'
-start_backup_prefs <- function(github_backup = FALSE, preference_path = "rstudio_preferences") {
-  local_prefs <- glue::glue("{here()}/rstudio_preferences")
-  backup_prefs()
-
-  if (github_backup == TRUE) {
-    copy_files_to_local(preference_path = "rstudio_preferences")
-    upload_prefs_to_github()
+#' # Customize preferences and git_message
+#' start_backup_prefs(
+#'   github_backup = TRUE,
+#'   preference_path = "R/rstudio_preferences/",
+#'   git_message = "Backup preferences"
+#' )
+#'
+start_backup_prefs <-
+  function(github_backup = FALSE,
+           copy_to_local = FALSE,
+           open_backup_path = FALSE,
+           preference_path = "R/rstudio_preferences/",
+           git_message = "Backup of R Studio preferences on {Sys.Date()}",
+           repository = ".") {
+    backup_prefs(open_backup_path)
+    if (copy_to_local == TRUE | github_backup == TRUE) {
+      copy_files_to_local(preference_path)
+    }
+    if (github_backup == TRUE) {
+      upload_prefs_to_github(preference_path, git_message, repository)
+    }
   }
-}

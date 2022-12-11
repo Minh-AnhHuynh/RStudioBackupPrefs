@@ -5,14 +5,17 @@
 \title{Upload preferences to GitHub}
 \usage{
 upload_prefs_to_github(
-  preference_path = "/rstudio_preferences",
-  git_message = "Backup of R Studio preferences on {Sys.Date()}."
+  preference_path = "R/rstudio_preferences/",
+  git_message = "Backup of R Studio preferences on {Sys.Date()}.",
+  repository = "."
 )
 }
 \arguments{
 \item{preference_path}{string. Relative file path name}
 
 \item{git_message}{string. Enter a git commit message.}
+
+\item{repository}{string. Defaults to the current git repository.}
 }
 \value{
 Upload your .json files to currently active git repository.
@@ -21,9 +24,12 @@ Upload your .json files to currently active git repository.
 Add, commit and push your .json files automatically with the name
 }
 \examples{
-\dontrun{
-upload_prefs_to_github("/rstudio_preferences")
-upload_prefs_to_github("/rstudio_preferences", git_message = "Backup preferences")
-}
+\dontshow{if (has_git_repository()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+# Upload preferences to currently active git repository
+upload_prefs_to_github("R/rstudio_preferences/")
 
+# Upload preferences to currently active git repository with a custom git commit message
+upload_prefs_to_github("R/rstudio_preferences/", git_message = "Backup preferences")
+#'
+\dontshow{\}) # examplesIf}
 }

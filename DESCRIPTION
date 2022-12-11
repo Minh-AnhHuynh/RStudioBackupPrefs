@@ -10,6 +10,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests: 
+    covr,
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
@@ -27,5 +28,6 @@ Imports:
     gert,
     usethis,
     stringr,
+    assertive
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
