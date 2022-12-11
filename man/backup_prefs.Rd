@@ -4,10 +4,10 @@
 \alias{backup_prefs}
 \title{Backup of R Studio preferences.}
 \usage{
-backup_prefs(open_prefs_folder = FALSE)
+backup_prefs(open_backup_path = FALSE)
 }
 \arguments{
-\item{open_prefs_folder}{logical: TRUE or FALSE. Open the preference folder
+\item{open_backup_path}{logical: TRUE or FALSE. Open the preference folder
 at the end of backing up for convenience.}
 }
 \value{
@@ -23,6 +23,6 @@ Use \code{usethis:::rstudio_config_path()} to obtain your preference
 path.
 }
 \examples{
-backup_prefs(open_prefs_folder = FALSE)
+backup_prefs(open_backup_path = FALSE)
 
 }

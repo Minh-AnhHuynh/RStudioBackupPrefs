@@ -2,21 +2,17 @@
 % Please edit documentation in R/start_import_prefs.R
 \name{start_import_prefs}
 \alias{start_import_prefs}
-\title{Import preferences from GitHub}
+\title{Start the import process from local files or from GitHub}
 \usage{
-start_import_prefs(
-  pull_github = TRUE,
-  clone_git = FALSE,
-  preference_path = "/rstudio_preferences"
-)
+start_import_prefs(preference_path = ".", github = TRUE, clone_git = FALSE)
 }
 \arguments{
-\item{pull_github}{boolean. Default is TRUE.}
+\item{preference_path}{Input file path where your preferences.json files are
+located.}
 
 \item{clone_git}{boolean: Default is FALSE. Clone git for first time usage.}
 
-\item{preference_path}{Input file path where your preferences.json files are
-located.}
+\item{pull_github}{boolean. Default is TRUE.}
 }
 \value{
 Pull your github and import your preferences to the R Studio
@@ -24,12 +20,13 @@ preference folder.
 }
 \description{
 Import preferences by cloning a link or pulling from your GitHub. The
-function will start to import from GitHub, then will import local prefs
+function will start to import from GitHub, then will import the local .json
+preference files.
 }
 \examples{
-\dontrun{
-start_import_prefs(pull_github = FALSE, preference_path = "/rstudio_preferences")
+\dontshow{if (has_git_repository()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+start_import_prefs(pull_github = FALSE, preference_path = "R/rstudio_preferences/")
 start_import_prefs(pull_github = TRUE)
-}
 
+\dontshow{\}) # examplesIf}
 }

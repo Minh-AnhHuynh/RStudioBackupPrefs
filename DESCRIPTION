@@ -27,5 +27,6 @@ Imports:
     gert,
     usethis,
     stringr,
+    assertive
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr

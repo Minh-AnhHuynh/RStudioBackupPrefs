@@ -8,16 +8,16 @@
 #' @details Use `usethis:::rstudio_config_path()` to obtain your preference
 #'   path.
 #'
-#' @param open_prefs_folder logical: TRUE or FALSE. Open the preference folder
+#' @param open_backup_path logical: TRUE or FALSE. Open the preference folder
 #'   at the end of backing up for convenience.
 #'
 #' @return Copy rstudio_bindings.json, addins.json rstudio-bindings.json and
 #'   r.snippets to .bak in your R Studio config path.
 #' @export
 #'
-#' @examples backup_prefs(open_prefs_folder = FALSE)
+#' @examples backup_prefs(open_backup_path = FALSE)
 #'
-backup_prefs <- function(open_prefs_folder = FALSE) {
+backup_prefs <- function(open_backup_path = FALSE) {
   # keybindings
   pref_path <- glue::glue("{usethis:::rstudio_config_path()}")
   if (fs::file_exists(glue::glue("{pref_path}/keybindings/rstudio_bindings.json"))) {
@@ -66,7 +66,7 @@ backup_prefs <- function(open_prefs_folder = FALSE) {
     cli::cli_alert_success("Backed up old {.file r.snippets} to
           {.file {pref_path}/r.snippets.bak}.")
   }
-  if (open_prefs_folder == TRUE) {
+  if (open_backup_path == TRUE) {
     shell.exec(glue("{usethis:::rstudio_config_path()}"))
   }
 }

@@ -10,7 +10,7 @@
 #'
 #' @examples copy_files_to_local()
 #'
-copy_files_to_local <- function(preference_path = "rstudio_preferences") {
+copy_files_to_local <- function(preference_path = "R/rstudio_preferences/") {
   files_to_copy_name <- files_to_copy()
   local_prefs <- glue::glue("{here::here()}/{preference_path}/")
 
