@@ -12,7 +12,6 @@
 import_local_prefs <-
   function(preference_path = "R/rstudio_preferences/",
            rstudio_pref_path = usethis:::rstudio_config_path()) {
-    browser()
     check_json_existence(preference_path)
 
     pref_files <- list.files(glue::glue("{here::here()}{preference_path}"))
