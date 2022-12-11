@@ -4,10 +4,11 @@
 #' function will start to import from GitHub, then will import the local .json
 #' preference files.
 #'
-#' @param pull_github boolean. Default is TRUE.
 #' @param clone_git boolean: Default is FALSE. Clone git for first time usage.
-#' @param preference_path Input file path where your preferences.json files are
-#'   located.
+#' @param preference_path string: Input file path where your preferences.json
+#'   files are located.
+#' @param github boolean: Use TRUE to pull or clone from GitHub, otherwise FALSE
+#'   to just import your local files.
 #'
 #' @return Pull your github and import your preferences to the R Studio
 #'   preference folder.

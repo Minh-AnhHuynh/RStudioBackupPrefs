@@ -7,12 +7,13 @@
 start_import_prefs(preference_path = ".", github = TRUE, clone_git = FALSE)
 }
 \arguments{
-\item{preference_path}{Input file path where your preferences.json files are
-located.}
+\item{preference_path}{string: Input file path where your preferences.json
+files are located.}
+
+\item{github}{boolean: Use TRUE to pull or clone from GitHub, otherwise FALSE
+to just import your local files.}
 
 \item{clone_git}{boolean: Default is FALSE. Clone git for first time usage.}
-
-\item{pull_github}{boolean. Default is TRUE.}
 }
 \value{
 Pull your github and import your preferences to the R Studio
