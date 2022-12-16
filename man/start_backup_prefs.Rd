@@ -32,8 +32,8 @@ r.snippets to .bak files in their native config folder. Then copy files to
 working directory in path and executes git push if \code{github_backup = TRUE}
 }
 \description{
-Function will start backing up your files in their folder to .bak. Use Make sure to have a git initiated
-repository.
+Function will start backing up your files in their folder to .bak. Make sure to have a git initiated
+repository if you wish to upload to your GitHub repository.
 }
 \details{
 Function wrapper using \code{backup_prefs()}. if github_backup = TRUE,

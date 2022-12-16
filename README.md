@@ -48,28 +48,45 @@ package with:
 librarian::shelf(Minh-AnhHuynh/RStudioBackupPrefs)
 ```
 
-## Example
+## Quick Start
 
 This is a basic example which shows you how to use the package:
 
 ``` r
-# Backup your preferences
+# Backup your preferences to a GitHub repository
 library(RStudioBackupPrefs)
 start_backup_prefs(github_backup = TRUE)
 
-
-# Import your preferences
-start_import_prefs(pull_github = TRUE, clone_git = FALSE)
-
-# Use clone_git = TRUE for first time usage
+# Import your preferences:
+# Use clone_git = TRUE if you haven't imported your preference files yet
 start_import_prefs(clone_git = TRUE)
+
+# Once your preferences are imported, indicate the path to file preferences:
+start_import_prefs("MyRStudioPrefs/R/rstudio_preferences/")
 ```
+
+### Offline backup
+
+``` r
+# Backup offline
+library(RStudioBackupPrefs)
+start_backup_prefs(copy_to_local = TRUE) 
+
+# If you are fine with leaving files in your R Studio preference folder:
+start_backup_prefs()
+
+# Use open_backup_path = TRUE to see your files in the explorer:
+start_backup_prefs(open_backup_path = TRUE)
+```
+
+For more information, please checkout the function documentation with
+?start_import_prefs or ?start_backup_prefs
 
 To use the GitHub functionalities, you need to have an initiated
 repository. Simply initiate one with :
 
 ``` r
-# Assuming you're in a folder:
+# Assuming you're in your desired folder path:
 usethis::use_git()
 usethis::use_github()
 
@@ -88,3 +105,7 @@ git init
 git config --global user.name "YOUR FULL NAME"
 git config --global user.email "YOUR EMAIL ADDRESS"
 ```
+
+Check out [Happy Git with R](https://happygitwithr.com/) for more
+information. Note that the SSH method is more complex and less
+recommended.

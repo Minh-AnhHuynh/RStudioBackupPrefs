@@ -1,5 +1,5 @@
 {
-    "insertPipeOperator": "Ctrl+'",
+    "insertPipeOperator": "Ctrl+\\",
     "saveSourceDoc": "Ctrl+S",
     "activateEnvironment": "Ctrl+G",
     "activateSource": "Ctrl+7",
@@ -7,5 +7,6 @@
     "activateHelp": "Ctrl+H",
     "activatePackages": "Ctrl+-",
     "helpSearch": "Ctrl+Shift+H",
-    "goToFileFunction": "Ctrl+;"
+    "goToFileFunction": "Ctrl+;",
+    "activateTerminal": "Ctrl+'"
 }
