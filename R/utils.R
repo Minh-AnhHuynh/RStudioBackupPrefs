@@ -22,7 +22,7 @@ check_json_existence <- function(preference_path = ".") {
   return(local_files)
 }
 
-#' Does it have a valid repository?
+#' Does it have a valid git repository?
 #' @noRd
 #' @export
 has_git_repository <- function() {

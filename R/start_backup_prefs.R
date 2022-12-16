@@ -1,7 +1,7 @@
 #' Start the backup process
 #'
-#' Function will start backing up your files in their folder to .bak. Use Make sure to have a git initiated
-#' repository.
+#' Function will start backing up your files in their folder to .bak. Make sure to have a git initiated
+#' repository if you wish to upload to your GitHub repository.
 #'
 #' @details Function wrapper using `backup_prefs()`. if github_backup = TRUE,
 #'   will then use those functions: `copy_files_to_local()` and

@@ -7,18 +7,18 @@
 import_from_github(clone_git = FALSE)
 }
 \arguments{
-\item{clone_git}{boolean. Use this option if your folder doesn't have an initiated repository.}
+\item{clone_git}{boolean. Use this option if you haven't initiated a repository.}
 }
 \value{
-Clone or pull from GitHub link.
+Clone or pull from a GitHub link from a user prompt.
 }
 \description{
-Clone or pull from your own git repository which
-should contain your backup preference files.
+Pull (or clone) from your own git repository which
+should contain your backup preference files. The function will attempt to pull your current git repository by default.
 }
 \examples{
-\dontrun{
+\dontshow{if (has_git_repository()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 import_from_github()
 import_from_github(clone_git = TRUE)
-}
+\dontshow{\}) # examplesIf}
 }

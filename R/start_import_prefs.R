@@ -1,11 +1,14 @@
 #' Start the import process from local files or from GitHub
 #'
 #' Import preferences by cloning a link or pulling from your GitHub. The
-#' function will start to import from GitHub, then will import the local .json
-#' preference files.
+#' function will start to pull from the currently active GitHub repository, then will import the local .json
+#' preference files. The function will look for the specific .json files only, in the given file path.
 #'
-#' @param clone_git boolean: Default is FALSE. Clone git for first time usage.
-#' @param preference_path string: Input file path where your preferences.json
+#' @seealso [import_from_github()] to just import, and [import_local_prefs()] to import locally
+#' @details Function wrapper of `import_from_github()` followed by `import_local_prefs()`
+#'
+#' @param clone_git boolean: Default is FALSE. Clone git for first time usage. A convenience function to avoid doing it manually, but it's essentially the same as doing `git_clone("github_url")`. It will clone the repository inside your current working directory.
+#' @param preference_path string: Input the file path where your preferences.json
 #'   files are located.
 #' @param github boolean: Use TRUE to pull or clone from GitHub, otherwise FALSE
 #'   to just import your local files.
@@ -19,7 +22,7 @@
 #' start_import_prefs(pull_github = TRUE)
 #'
 #'
-start_import_prefs <- function(preference_path = ".", github = TRUE, clone_git = FALSE) {
+start_import_prefs <- function(preference_path = "R/rstudio_preferences/", github = TRUE, clone_git = FALSE) {
   if (github == TRUE) {
     import_from_github(clone_git)
   }
