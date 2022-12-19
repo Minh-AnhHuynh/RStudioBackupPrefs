@@ -22,10 +22,16 @@
     <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/index.html</loc>
   </url>
   <url>
+    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/RStudioBackupPrefs-package.html</loc>
+  </url>
+  <url>
     <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/backup_prefs.html</loc>
   </url>
   <url>
     <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/copy_files_to_local.html</loc>
+  </url>
+  <url>
+    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/has_git_repository.html</loc>
   </url>
   <url>
     <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/import_from_github.html</loc>
