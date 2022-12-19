@@ -1,5 +1,5 @@
 test_that("import_local_prefs() throws an error for unknown .json preference files", {
-  temp_dir <- tempdir()
+  temp_dir <- file.path(tempdir(), "no_file")
   # Call the function with an invalid preference path
   result <-
     # Check that the function throws an error

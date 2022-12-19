@@ -4,11 +4,16 @@
 \alias{copy_files_to_local}
 \title{Copy backup files to a chosen local folder}
 \usage{
-copy_files_to_local(preference_path = "R/rstudio_preferences/")
+copy_files_to_local(
+  preference_path = "R/rstudio_preferences/",
+  rstudio_pref_path = rstudio_config_path()
+)
 }
 \arguments{
 \item{preference_path}{string: Use a relative file path, don't add a "/" at
-the end}
+the end.}
+
+\item{rstudio_pref_path}{string: Default RStudio preference path.}
 }
 \value{
 Copy addins.json, r.snippets, rstudio_bindings.json, prefs.json to
