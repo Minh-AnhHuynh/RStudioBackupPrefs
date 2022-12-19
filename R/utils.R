@@ -27,7 +27,7 @@ check_json_existence <- function(preference_path = ".") {
 #' Does it have a valid git repository?
 #'
 #' Simply check for git status and assert that it is error free. Internal usage.
-#'
+#' @noRd
 #' @export
 has_git_repository <- function() {
   assertive::is_error_free(git_status())
