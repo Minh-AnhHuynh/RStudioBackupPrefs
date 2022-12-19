@@ -21,7 +21,6 @@
 #' start_import_prefs(pull_github = FALSE, preference_path = "R/rstudio_preferences/")
 #' start_import_prefs(pull_github = TRUE)
 #'
-#'
 start_import_prefs <- function(preference_path = "R/rstudio_preferences/", github = TRUE, clone_git = FALSE) {
   if (github == TRUE) {
     import_from_github(clone_git)

@@ -26,8 +26,9 @@ Imports:
     yesno,
     here,
     gert,
-    usethis,
     stringr,
-    assertive
+    assertive,
+    rappdirs,
+    usethis
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr

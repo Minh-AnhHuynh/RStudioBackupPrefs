@@ -35,7 +35,6 @@ Function wrapper of \code{import_from_github()} followed by \code{import_local_p
 \dontshow{if (has_git_repository()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 start_import_prefs(pull_github = FALSE, preference_path = "R/rstudio_preferences/")
 start_import_prefs(pull_github = TRUE)
-
 \dontshow{\}) # examplesIf}
 }
 \seealso{

@@ -3,7 +3,7 @@
 #'
 #' @param preference_path string: Relative folder_path where .json files are
 #'   contained.
-#' @param rstudio_pref_path string: Don't touch this. Can be modified for testing purposes.
+#' @param rstudio_pref_path string: Default rstudio_config_path.
 #'
 #' @return Import addins.json, rstudio_bindings.json, r.snippets to the
 #'   keybindings folder and rstudio-prefs.json to the RStudio folder
@@ -11,10 +11,9 @@
 #' @examples import_local_prefs("R/rstudio_preferences/")
 import_local_prefs <-
   function(preference_path = "R/rstudio_preferences/",
-           rstudio_pref_path = usethis:::rstudio_config_path()) {
+           rstudio_pref_path = rstudio_config_path()) {
     check_json_existence(preference_path)
 
-    pref_files <- list.files(glue::glue("{here::here()}{preference_path}"))
 
     # List the file names and only add existing files
     # For example, r.snippets might not exist

@@ -13,7 +13,7 @@
 #' import_from_github()
 #' import_from_github(clone_git = TRUE)
 import_from_github <- function(clone_git = FALSE) {
-  if (clone_git == TRUE | has_git_repository() != TRUE) {
+  if (clone_git == TRUE || has_git_repository() != TRUE) {
     repo <- readline("Enter url of your repository: ")
     gert::git_clone(repo)
   } else {
