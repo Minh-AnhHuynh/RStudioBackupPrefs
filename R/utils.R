@@ -2,8 +2,10 @@
 #' Check existence of the RStudio preference files in the given file path.
 #'
 #' Will also return the file names for convenience.
+#'
+#' @param preference_path Default to working directory
+#'
 #' @noRd
-#' @export
 check_json_existence <- function(preference_path = ".") {
   prefs_files <-
     c(
@@ -23,9 +25,25 @@ check_json_existence <- function(preference_path = ".") {
 }
 
 #' Does it have a valid git repository?
-#' @noRd
+#'
+#' Simply check for git status and assert that it is error free. Internal usage.
+#'
 #' @export
 has_git_repository <- function() {
   assertive::is_error_free(git_status())
 }
 
+#' Return rstudio_config_path
+#'
+#' Imported from `usethis:::rstudio_config_path()`
+#'
+#' @noRd
+#'
+rstudio_config_path <- function(...) {
+  if (assertive::is_windows()) {
+    base <- rappdirs::user_config_dir("RStudio", appauthor = NULL)
+  } else {
+    base <- rappdirs::user_config_dir("rstudio", os = "unix")
+  }
+  fs::path(base, ...)
+}

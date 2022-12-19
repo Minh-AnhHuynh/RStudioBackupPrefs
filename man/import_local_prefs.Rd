@@ -6,14 +6,14 @@
 \usage{
 import_local_prefs(
   preference_path = "R/rstudio_preferences/",
-  rstudio_pref_path = usethis:::rstudio_config_path()
+  rstudio_pref_path = rstudio_config_path()
 )
 }
 \arguments{
 \item{preference_path}{string: Relative folder_path where .json files are
 contained.}
 
-\item{rstudio_pref_path}{string: Don't touch this. Can be modified for testing purposes.}
+\item{rstudio_pref_path}{string: Default rstudio_config_path.}
 }
 \value{
 Import addins.json, rstudio_bindings.json, r.snippets to the
