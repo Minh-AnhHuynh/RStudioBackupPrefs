@@ -22,7 +22,8 @@ copy_files_to_local <-
     prefs_name <- list.files(local_prefs, full.names = TRUE)
     remove_bak <- stringr::str_remove_all(prefs_name, ".bak")
     file.rename(prefs_name, remove_bak)
-    cli::cli_alert_success("Preferences files copied to {list.files(local_prefs, full.names = TRUE)}",
+    cli::cli_alert_success("Preferences files copied to
+                           {list.files(local_prefs, full.names = TRUE)}",
       wrap = TRUE
     )
   }
