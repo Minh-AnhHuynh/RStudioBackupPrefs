@@ -4,7 +4,7 @@
 \alias{import_from_github}
 \title{Import preferences from a GitHub url}
 \usage{
-import_from_github(clone_git = FALSE)
+import_from_github(clone_git = FALSE, target_dir = NULL)
 }
 \arguments{
 \item{clone_git}{boolean. Use this option if you haven't initiated a repository.}
