@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   my-vignette: my-vignette.html
-last_built: 2023-07-04T15:23Z
+last_built: 2023-07-04T15:41Z
 urls:
   reference: https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference
   article: https://minh-anhhuynh.github.io/RStudioBackupPrefs/articles
