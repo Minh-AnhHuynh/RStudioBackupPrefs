@@ -8,7 +8,7 @@ start_import_prefs(
   preference_path = "R/rstudio_preferences/",
   github = TRUE,
   clone_git = FALSE,
-  target_dir = NULL
+  target_dir = c(NULL, "parent", ...)
 )
 }
 \arguments{
@@ -20,7 +20,7 @@ to just import your local files.}
 
 \item{clone_git}{boolean: Default is FALSE. Clone git for first time usage. A convenience function to avoid doing it manually, but it's essentially the same as doing \code{git_clone("github_url")}. It will clone the repository inside your current working directory or the specified target directory.}
 
-\item{target_dir}{string: The desired file path to clone your cloned github directory. Use \code{parent_dir <- dirname(getwd())} to get the parent directory of the current directory.}
+\item{target_dir}{string: The desired file path to clone your cloned github directory. Use "parent" to get the parent directory of the current directory.}
 }
 \value{
 Pull your github and import your preferences to the R Studio

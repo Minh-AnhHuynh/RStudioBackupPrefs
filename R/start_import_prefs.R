@@ -12,7 +12,7 @@
 #'   files are located.
 #' @param github boolean: Use TRUE to pull or clone from GitHub, otherwise FALSE
 #'   to just import your local files.
-#' @param target_dir string: The desired file path to clone your cloned github directory. Use `parent_dir <- dirname(getwd())` to get the parent directory of the current directory.
+#' @param target_dir string: The desired file path to clone your cloned github directory. Use "parent" to get the parent directory of the current directory.
 
 #'
 #' @return Pull your github and import your preferences to the R Studio
@@ -30,17 +30,19 @@ start_import_prefs <-
   function(preference_path = "R/rstudio_preferences/",
            github = TRUE,
            clone_git = FALSE,
-           target_dir = NULL) {
-    if (github) {
-      github_path <- import_from_github(clone_git, target_dir)
+           target_dir = c(NULL, "parent", ...)) {
+             if (target_dir == "parent")
+               target_dir <- dirname(getwd())
+             if (github) {
+               github_path <- import_from_github(clone_git, target_dir)
 
-      # Update the preference_path based on the target_dir
-      if (!is.null(target_dir)) {
-        preference_path <- file.path(github_path, preference_path)
-      }
+               # Update the preference_path based on the target_dir
+               if (!is.null(target_dir)) {
+                 preference_path <- file.path(github_path, preference_path)
+               }
 
-      import_local_prefs(preference_path)
-    } else {
-      import_local_prefs(preference_path)
-    }
-  }
+               import_local_prefs(preference_path)
+             } else {
+               import_local_prefs(preference_path)
+             }
+           }
