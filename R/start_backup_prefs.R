@@ -45,3 +45,7 @@ start_backup_prefs <-
       upload_prefs_to_github(preference_path, git_message, repository)
     }
   }
+
+# TODO After backing up using github_backup=TRUE, it fails to commit + push
+# Proposition : Just asks the user to do a commit message or use a default one, then push it
+# Also add a "is it a git initiated repository check" and display a user message (also add it to the test)
