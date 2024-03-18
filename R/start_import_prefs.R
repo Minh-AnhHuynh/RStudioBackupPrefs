@@ -7,6 +7,7 @@
 #' @seealso [import_from_github()] to just import, and [import_local_prefs()] to import locally
 #' @details Function wrapper of `import_from_github()` followed by `import_local_prefs()`
 #'
+
 #' @param clone_git boolean. Default is FALSE. Clone git for first time usage. A convenience function to avoid doing it manually, but it's essentially the same as doing `gert::git_clone("github_url")`. It will clone the repository inside your current working directory.
 #' @param preference_path string. Input the file path where your preferences.json
 #'   files are located.
@@ -39,3 +40,4 @@ start_import_prefs <-
     }
     import_local_prefs(preference_path)
   }
+

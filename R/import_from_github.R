@@ -42,5 +42,6 @@ import_from_github <- function(clone_git = FALSE, git_url = NULL) {
   } else {
     message("Pull git repository.")
     gert::git_pull()
+
   }
-}
+

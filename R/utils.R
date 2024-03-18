@@ -1,4 +1,3 @@
-
 #' Check existence of the RStudio preference files in the given file path.
 #'
 #' Will also return the file names for convenience.

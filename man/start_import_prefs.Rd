@@ -6,6 +6,7 @@
 \usage{
 start_import_prefs(
   preference_path = "R/rstudio_preferences/",
+
   pull_github = TRUE,
   clone_git = FALSE,
   git_url = NULL
@@ -17,6 +18,7 @@ files are located.}
 
 \item{pull_github}{boolean. Use TRUE to pull or clone from GitHub, otherwise FALSE
 to just import your local files.}
+
 
 \item{clone_git}{boolean. Default is FALSE. Clone git for first time usage. A convenience function to avoid doing it manually, but it's essentially the same as doing \code{gert::git_clone("github_url")}. It will clone the repository inside your current working directory.}
 
