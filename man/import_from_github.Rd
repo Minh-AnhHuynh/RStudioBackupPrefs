@@ -4,10 +4,13 @@
 \alias{import_from_github}
 \title{Import preferences from a GitHub url}
 \usage{
-import_from_github(clone_git = FALSE, target_dir = NULL)
+import_from_github(clone_git = FALSE, git_url = NULL)
 }
 \arguments{
 \item{clone_git}{boolean. Use this option if you haven't initiated a repository.}
+
+\item{git_url}{string. Allow to user the bypass the request of the git url to
+directly clone the desired git url repository}
 }
 \value{
 Clone or pull from a GitHub link from a user prompt.
@@ -17,8 +20,17 @@ Pull (or clone) from your own git repository which
 should contain your backup preference files. The function will attempt to pull your current git repository by default.
 }
 \examples{
-\dontshow{if (has_git_repository()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontrun{
+# Setup (inspired from gert)
+oldwd <- getwd()
+repo <- file.path(tempdir(), "myrepo")
+gert::git_init(repo)
+setwd(repo)
+
+# Use import_from_github
 import_from_github()
 import_from_github(clone_git = TRUE)
-\dontshow{\}) # examplesIf}
+import_from_github(git_url = https://git_url.com)
+}
+
 }

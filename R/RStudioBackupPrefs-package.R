@@ -2,11 +2,9 @@
 "_PACKAGE"
 
 ## usethis namespace: start
-#' @import assertive
 #' @import cli
 #' @import gert
 #' @import glue
-#' @import usethis
 #' @import yesno
 #' @importFrom fs dir_create
 #' @importFrom fs file_copy
