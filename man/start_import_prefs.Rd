@@ -2,25 +2,29 @@
 % Please edit documentation in R/start_import_prefs.R
 \name{start_import_prefs}
 \alias{start_import_prefs}
-\title{Start the import process from local files or from GitHub}
+\title{Start the import process from Github by default or your local json preference files}
 \usage{
 start_import_prefs(
   preference_path = "R/rstudio_preferences/",
-  github = TRUE,
-  clone_git = FALSE
+  pull_github = TRUE,
+  clone_git = FALSE,
+  git_url = NULL
 )
 }
 \arguments{
-\item{preference_path}{string: Input the file path where your preferences.json
+\item{preference_path}{string. Input the file path where your preferences.json
 files are located.}
 
-\item{github}{boolean: Use TRUE to pull or clone from GitHub, otherwise FALSE
+\item{pull_github}{boolean. Use TRUE to pull or clone from GitHub, otherwise FALSE
 to just import your local files.}
 
-\item{clone_git}{boolean: Default is FALSE. Clone git for first time usage. A convenience function to avoid doing it manually, but it's essentially the same as doing \code{git_clone("github_url")}. It will clone the repository inside your current working directory.}
+\item{clone_git}{boolean. Default is FALSE. Clone git for first time usage. A convenience function to avoid doing it manually, but it's essentially the same as doing \code{gert::git_clone("github_url")}. It will clone the repository inside your current working directory.}
+
+\item{git_url}{string. Allow to user the bypass the request of the git url to
+directly clone the desired git url repository}
 }
 \value{
-Pull your github and import your preferences to the R Studio
+Clone or pull from your github repository and import the RStudio preferences to the internal R Studio
 preference folder.
 }
 \description{
@@ -32,10 +36,12 @@ preference files. The function will look for the specific .json files only, in t
 Function wrapper of \code{import_from_github()} followed by \code{import_local_prefs()}
 }
 \examples{
-\dontshow{if (has_git_repository()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontrun{
 start_import_prefs(pull_github = FALSE, preference_path = "R/rstudio_preferences/")
 start_import_prefs(pull_github = TRUE)
-\dontshow{\}) # examplesIf}
+start_import_prefs(clone_git = TRUE)
+}
+
 }
 \seealso{
 \code{\link[=import_from_github]{import_from_github()}} to just import, and \code{\link[=import_local_prefs]{import_local_prefs()}} to import locally

@@ -8,13 +8,24 @@
 #'
 #' @return Upload your .json files to currently active git repository.
 #' @export
-#' @examplesIf has_git_repository()
+#' @examples
+#'
+#' # Setup (inspired from gert)
+#' oldwd <- getwd()
+#' repo <- file.path(tempdir(), "myrepo")
+#' gert::git_init(repo)
+#' setwd(repo)
+#'
 #' # Upload preferences to currently active git repository
 #' upload_prefs_to_github("R/rstudio_preferences/")
 #'
 #' # Upload preferences to currently active git repository with a custom git commit message
 #' upload_prefs_to_github("R/rstudio_preferences/", git_message = "Backup preferences")
-#' #'
+#'
+#' # cleanup
+#' setwd(oldwd)
+#' unlink(repo, recursive = TRUE)
+#'
 upload_prefs_to_github <-
   function(preference_path = "R/rstudio_preferences/",
            git_message = "Backup of R Studio preferences on {Sys.Date()}.",
@@ -33,7 +44,7 @@ upload_prefs_to_github <-
       }
     }
 
-    if (any(assertive::is_true(git_status()$staged))) {
+    if (git_status()$staged == TRUE) {
       # Prompt user to confirm whether to unstage files
       yes_unstage <-
         yesno::yesno("There are staged files, do you want to unstage?")
@@ -49,6 +60,16 @@ upload_prefs_to_github <-
         )
       }
     }
+
+    if (gert::git_status()$modified == TRUE) {
+      # Prompt user to stash the files
+      yes_stash <- yesno::yesno("There are modified files, do you want to stash them?")
+      if (yes_stash == TRUE) {
+        # Stash files
+        gert::git_stash_save()
+      }
+    }
+
     # Add files to Git repository
     tryCatch(
       {

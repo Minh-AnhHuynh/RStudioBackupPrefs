@@ -6,19 +6,19 @@ test_that("copy_files_to_local() copies files to the local folder", {
   preference_path <- file.path(temp_dir, "preferences")
 
   # Set up test data
-  rstudio_bindings <- file.path(temp_dir, "keybindings", "rstudio_bindings.bak")
-  addins <- file.path(temp_dir, "keybindings", "addins.bak")
-  rstudio_prefs <- file.path(temp_dir, "rstudio-prefs.bak")
-  snippets <- file.path(temp_dir, "snippets", "r.snippets.bak")
-  fs::dir_create(file.path(temp_dir, "keybindings"), recurse = TRUE)
-  fs::dir_create(file.path(temp_dir, "snippets"), recurse = TRUE)
+  rstudio_bindings <- file.path(preference_path, "keybindings", "rstudio_bindings.json.bak")
+  addins <- file.path(preference_path, "keybindings", "addins.json.bak")
+  rstudio_prefs <- file.path(preference_path, "rstudio-prefs.json.bak")
+  snippets <- file.path(preference_path, "snippets", "r.snippets.bak")
+  fs::dir_create(file.path(preference_path, "keybindings"), recurse = TRUE)
+  fs::dir_create(file.path(preference_path, "snippets"), recurse = TRUE)
   writeLines("test", rstudio_bindings)
   writeLines("test", addins)
   writeLines("test", rstudio_prefs)
   writeLines("test", snippets)
 
   # Run the copy_files_to_local() function
-  copy_files_to_local(preference_path, rstudio_pref_path = temp_dir)
+  copy_files_to_local(preference_path, rstudio_pref_path = preference_path)
 
 
   # Test that the copied files exist in the temporary directory

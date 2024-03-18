@@ -1,4 +1,3 @@
-
 #' Import local preferences files to R Studio
 #'
 #' @param preference_path string: Relative folder_path where .json files are
@@ -8,7 +7,10 @@
 #' @return Import addins.json, rstudio_bindings.json, r.snippets to the
 #'   keybindings folder and rstudio-prefs.json to the RStudio folder
 #' @export
-#' @examples import_local_prefs("R/rstudio_preferences/")
+#' @examples
+#' \dontrun{
+#' import_local_prefs("R/rstudio_preferences/")
+#' }
 import_local_prefs <-
   function(preference_path = "R/rstudio_preferences/",
            rstudio_pref_path = rstudio_config_path()) {
