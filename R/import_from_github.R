@@ -9,9 +9,19 @@
 #' @return Clone or pull from a GitHub link from a user prompt.
 #' @export
 #'
-#' @examplesIf has_git_repository()
+#' @examples
+#' \dontrun{
+#' # Setup (inspired from gert)
+#' oldwd <- getwd()
+#' repo <- file.path(tempdir(), "myrepo")
+#' gert::git_init(repo)
+#' setwd(repo)
+#'
+#' # Use import_from_github
 #' import_from_github()
 #' import_from_github(clone_git = TRUE)
+#' }
+#'
 import_from_github <- function(clone_git = FALSE) {
   if (clone_git == TRUE || has_git_repository() != TRUE) {
     repo <- readline("Enter url of your repository: ")

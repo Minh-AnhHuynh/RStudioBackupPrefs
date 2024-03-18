@@ -38,7 +38,7 @@ start_backup_prefs <-
            git_message = "Backup of R Studio preferences on {Sys.Date()}",
            repository = ".") {
     backup_prefs(open_backup_path)
-    if (copy_to_local == TRUE | github_backup == TRUE) {
+    if (copy_to_local == TRUE || github_backup == TRUE) {
       copy_files_to_local(preference_path)
     }
     if (github_backup == TRUE) {

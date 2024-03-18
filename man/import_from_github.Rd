@@ -17,8 +17,16 @@ Pull (or clone) from your own git repository which
 should contain your backup preference files. The function will attempt to pull your current git repository by default.
 }
 \examples{
-\dontshow{if (has_git_repository()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontrun{
+# Setup (inspired from gert)
+oldwd <- getwd()
+repo <- file.path(tempdir(), "myrepo")
+gert::git_init(repo)
+setwd(repo)
+
+# Use import_from_github
 import_from_github()
 import_from_github(clone_git = TRUE)
-\dontshow{\}) # examplesIf}
+}
+
 }

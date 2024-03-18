@@ -24,12 +24,21 @@ Upload your .json files to currently active git repository.
 Add, commit and push your .json files automatically with the name
 }
 \examples{
-\dontshow{if (has_git_repository()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+
+# Setup (inspired from gert)
+oldwd <- getwd()
+repo <- file.path(tempdir(), "myrepo")
+gert::git_init(repo)
+setwd(repo)
+
 # Upload preferences to currently active git repository
 upload_prefs_to_github("R/rstudio_preferences/")
 
 # Upload preferences to currently active git repository with a custom git commit message
 upload_prefs_to_github("R/rstudio_preferences/", git_message = "Backup preferences")
-#'
-\dontshow{\}) # examplesIf}
+
+# cleanup
+setwd(oldwd)
+unlink(repo, recursive = TRUE)
+
 }

@@ -8,4 +8,5 @@
 
 library(testthat)
 library(RStudioBackupPrefs)
+
 test_check("RStudioBackupPrefs")

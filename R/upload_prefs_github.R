@@ -8,13 +8,24 @@
 #'
 #' @return Upload your .json files to currently active git repository.
 #' @export
-#' @examplesIf has_git_repository()
+#' @examples
+#'
+#' # Setup (inspired from gert)
+#' oldwd <- getwd()
+#' repo <- file.path(tempdir(), "myrepo")
+#' gert::git_init(repo)
+#' setwd(repo)
+#'
 #' # Upload preferences to currently active git repository
 #' upload_prefs_to_github("R/rstudio_preferences/")
 #'
 #' # Upload preferences to currently active git repository with a custom git commit message
 #' upload_prefs_to_github("R/rstudio_preferences/", git_message = "Backup preferences")
-#' #'
+#'
+#' # cleanup
+#' setwd(oldwd)
+#' unlink(repo, recursive = TRUE)
+#'
 upload_prefs_to_github <-
   function(preference_path = "R/rstudio_preferences/",
            git_message = "Backup of R Studio preferences on {Sys.Date()}.",
