@@ -44,7 +44,7 @@ upload_prefs_to_github <-
       }
     }
 
-    if (any(assertive::is_true(git_status()$staged))) {
+    if (git_status()$staged == TRUE) {
       # Prompt user to confirm whether to unstage files
       yes_unstage <-
         yesno::yesno("There are staged files, do you want to unstage?")
@@ -60,6 +60,16 @@ upload_prefs_to_github <-
         )
       }
     }
+
+    if (gert::git_status()$modified == TRUE) {
+      # Prompt user to stash the files
+      yes_stash <- yesno::yesno("There are modified files, do you want to stash them?")
+      if (yes_stash == TRUE) {
+        # Stash files
+        gert::git_stash_save()
+      }
+    }
+
     # Add files to Git repository
     tryCatch(
       {

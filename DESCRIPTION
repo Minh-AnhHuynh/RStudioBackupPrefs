@@ -13,7 +13,8 @@ Suggests:
     covr,
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    assertthat
 Config/testthat/edition: 3
 URL: https://github.com/Minh-AnhHuynh/RStudioBackupPrefs,
     https://minh-anhhuynh.github.io/RStudioBackupPrefs/
@@ -27,8 +28,8 @@ Imports:
     here,
     gert,
     stringr,
-    assertive,
     rappdirs,
-    usethis
+    usethis,
+    httr
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr

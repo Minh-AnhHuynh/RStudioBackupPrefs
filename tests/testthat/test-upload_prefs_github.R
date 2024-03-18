@@ -17,7 +17,7 @@ git_add("test_file_1.txt", "test_file_2.txt")
 git_commit(message = "Test commit message")
 
 # Verify that the function successfully stages and commits the changes
-expect_true(any(assertive::is_true(git_status()$staged)))
+expect_true(any(git_status()$staged))
 expect_true(git_commit())
 
 # Call the upload_prefs_to_github() function again, this time with no arguments

@@ -23,5 +23,7 @@ keybindings folder and rstudio-prefs.json to the RStudio folder
 Import local preferences files to R Studio
 }
 \examples{
+\dontrun{
 import_local_prefs("R/rstudio_preferences/")
+}
 }
