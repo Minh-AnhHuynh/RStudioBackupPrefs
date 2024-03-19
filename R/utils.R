@@ -9,13 +9,14 @@ check_json_existence <- function(preference_path = ".") {
   prefs_files <-
     c(
       "rstudio-prefs.json",
-      "rstudio_bindings.json",
-      "addins.json",
-      "r.snippets"
+      "keybindings/rstudio_bindings.json",
+      "keybindings/addins.json",
+      "keybindings/r.snippets",
+      "keybindings/editor_bindings.json"
     )
   local_files <-
     fs::file_exists(glue("{preference_path}/{prefs_files}"))
-  if (!all(local_files)) {
+  if (!any(local_files)) {
     stop("No .json preference files are found. Please check the file path.")
   }
   local_files <-
