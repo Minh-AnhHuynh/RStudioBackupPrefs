@@ -1,35 +1,38 @@
-Package: RStudioBackupPrefs
 Type: Package
-Title: Easily backup your RStudio preferences easily and import them on another computer from github
+Package: RStudioBackupPrefs
+Title: Easily backup your RStudio preferences easily and import them on
+    another computer from github
 Version: 0.1.0
 Author: Minh-Anh Huynh
-Description: The package provides a few short functions that automates backup and import from local or github files.
-    Check the documentation for usage.
 Maintainer: Minh-Anh Huynh <minh-anh.huynh@etu.u-paris.fr>
+Description: The package provides a few short functions that automates
+    backup and import from local or github files.  Check the documentation
+    for usage.
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
-Suggests: 
-    covr,
-    knitr,
-    rmarkdown,
-    testthat (>= 3.0.0),
-    assertthat
-Config/testthat/edition: 3
 URL: https://github.com/Minh-AnhHuynh/RStudioBackupPrefs,
     https://minh-anhhuynh.github.io/RStudioBackupPrefs/
 BugReports: https://github.com/Minh-AnhHuynh/RStudioBackupPrefs/issues
-RoxygenNote: 7.2.3
 Imports:
-    glue,
-    fs,
     cli,
-    yesno,
-    here,
+    fs,
     gert,
-    stringr,
+    glue,
+    here,
+    httr,
     rappdirs,
+    stringr,
     usethis,
-    httr
+    yesno
+Suggests: 
+    assertthat,
+    covr,
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: 
+    knitr
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
 Roxygen: list(markdown = TRUE)
-VignetteBuilder: knitr
+RoxygenNote: 7.2.3
