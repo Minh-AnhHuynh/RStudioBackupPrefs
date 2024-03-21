@@ -40,4 +40,3 @@ start_import_prefs <-
     }
     import_local_prefs(preference_path)
   }
-

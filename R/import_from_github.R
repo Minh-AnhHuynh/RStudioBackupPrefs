@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' # Setup (inspired from gert)
+#' # Setup
 #' oldwd <- getwd()
 #' repo <- file.path(tempdir(), "myrepo")
 #' gert::git_init(repo)
@@ -24,7 +24,8 @@
 #' import_from_github(git_url = https://git_url.com)
 #' }
 #'
-import_from_github <- function(clone_git = FALSE, git_url = NULL) {
+import_from_github <- function(clone_git = FALSE,
+                               git_url = NULL) {
   if (clone_git == TRUE || has_git_repository() == FALSE) {
     if (!is.null(git_url)) {
       repo <- git_url
@@ -32,16 +33,18 @@ import_from_github <- function(clone_git = FALSE, git_url = NULL) {
       list_github_repositories(get_current_git_username())
       repo <- readline("Enter url of your git repository: ")
     }
-    tryCatch({
-      clone_path <- gert::git_clone(repo)
-      return(clone_path)
-    }, error = function(e) {
-      message("Error occurred while cloning the repository:", e$message)
-      return(NULL)
-    })
+    tryCatch(
+      {
+        clone_path <- gert::git_clone(repo)
+        return(clone_path)
+      },
+      error = function(e) {
+        message("Error occurred while cloning the repository:", e$message)
+        return(NULL)
+      }
+    )
   } else {
     message("Pull git repository.")
     gert::git_pull()
-
   }
-
+}

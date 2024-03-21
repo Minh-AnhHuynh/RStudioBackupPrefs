@@ -21,7 +21,7 @@ should contain your backup preference files. The function will attempt to pull y
 }
 \examples{
 \dontrun{
-# Setup (inspired from gert)
+# Setup
 oldwd <- getwd()
 repo <- file.path(tempdir(), "myrepo")
 gert::git_init(repo)

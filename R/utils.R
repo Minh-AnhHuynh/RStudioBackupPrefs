@@ -31,19 +31,22 @@ check_json_existence <- function(preference_path = ".") {
 #' @noRd
 #' @examples verify_is_error(git_info())
 verify_is_error <- function(expr) {
-  tryCatch({
-    expr
-  }, error = function(e) {
-    return(TRUE)
-  })
+  tryCatch(
+    {
+      expr
+    },
+    error = function(e) {
+      return(TRUE)
+    }
+  )
   return(FALSE)
 }
 
 
 #' Does it have a valid git repository?
 #'
-#' Simply check for git status and assert that it is error free. Internal usage.
-#' @export
+#' Simply check for git status and assert that it is error free.
+#' @noRd
 has_git_repository <- function() {
   !verify_is_error(git_info())
 }
@@ -58,7 +61,7 @@ is_windows <- function() {
   sys_info <- Sys.info()
 
   # Check if the operating system is Windows
-  return(tolower(sys_info['sysname']) == "windows")
+  return(tolower(sys_info["sysname"]) == "windows")
 }
 
 
@@ -118,14 +121,12 @@ list_github_repositories <- function(username) {
 #' @return string: Current git username.
 #' @noRd
 #'
-#' @examples
-#' Call the function to get the current Git username
-#' current_username <- get_current_git_username()
+#' @examples get_current_git_username()
 #'
 get_current_git_username <- function() {
   # Run git config command to get the current user.name
   config <- gert::git_config()
-  current_username <- config[config$name == "user.name",]$value
+  current_username <- config[config$name == "user.name", ]$value
   # Print the current username
   cat("Current Git username:", current_username, "\n")
   return(current_username)
@@ -153,4 +154,3 @@ get_latest_directory <- function(parent_path) {
 
   return(latest_directory)
 }
-
