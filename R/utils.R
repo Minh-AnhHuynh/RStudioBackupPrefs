@@ -1,3 +1,22 @@
+#' Internal function usage to get the vector of json files to copy. Useful when
+#' there is a file missing such as r.snippets
+#' @noRd
+files_to_copy <- function(rstudio_pref_path = rstudio_config_path()) {
+  pref_path <- glue::glue("{rstudio_pref_path}")
+  prefs <- glue::glue("{pref_path}/rstudio-prefs.json.bak")
+  bindings <-
+    glue::glue("{pref_path}/keybindings/rstudio_bindings.json.bak")
+  addins <- glue::glue("{pref_path}/keybindings/addins.json.bak")
+  snippets <- glue::glue("{pref_path}/snippets/r.snippets.bak")
+
+
+  # Make a vector of files to copy that exists
+  files_to_copy_name <- c(prefs, bindings, addins, snippets)
+  files_to_copy <- fs::file_exists(files_to_copy_name)
+  files_to_copy_name <-
+    files_to_copy_name[files_to_copy] # Keep TRUE value
+  return(files_to_copy_name)
+}
 
 #' Check existence of the RStudio preference files in the given file path.
 #'
@@ -46,7 +65,7 @@ verify_is_error <- function(expr) {
 #' Simply check for git status and assert that it is error free. Internal usage.
 #' @export
 has_git_repository <- function() {
-  !verify_is_error(git_info())
+  !verify_is_error(git_find())
 }
 
 
@@ -81,15 +100,18 @@ rstudio_config_path <- function(...) {
 
 #' List the online git repositories of the current user
 #'
-#' @param username
+#' @param username string. The git username to list the repositories
 #'
 #' @return A list of the current public repositories for the current git user
-#' @noRd
+#' @export
 #' @examples
-#' list_github_repositories(get_current_git_username())
+#' list_github_repositories()
 #'
-list_github_repositories <- function(username) {
-  # Set up the API endpoint
+list_github_repositories <- function(username = get_current_git_username) {
+  if (is.function(username)) {
+    username <- username()
+  }
+  # Set up the API endpoint0
   url <- paste0("https://api.github.com/users/", username, "/repos")
   # Make the HTTP request
   response <- httr::GET(url)
