@@ -8,7 +8,10 @@
 #'   folder in your working directory
 #' @export
 #'
-#' @examples copy_files_to_local()
+#' @examples
+#' temp_dir <- tempdir()
+#' copy_files_to_local(temp_dir)
+#' unlink(temp_dir)
 #'
 copy_files_to_local <-
   function(preference_path = "R/rstudio_preferences/",
@@ -23,28 +26,7 @@ copy_files_to_local <-
     remove_bak <- stringr::str_remove_all(prefs_name, ".bak")
     file.rename(prefs_name, remove_bak)
     cli::cli_alert_success("Preferences files copied to
-                           {list.files(local_prefs, full.names = TRUE)}",
+                           {.path {local_prefs}}",
       wrap = TRUE
     )
   }
-
-
-#' Internal function usage to get the vector of json files to copy. Useful when
-#' there is a file missing such as r.snippets
-#' @noRd
-files_to_copy <- function(rstudio_pref_path = rstudio_config_path()) {
-  pref_path <- glue::glue("{rstudio_pref_path}")
-  prefs <- glue::glue("{pref_path}/rstudio-prefs.json.bak")
-  bindings <-
-    glue::glue("{pref_path}/keybindings/rstudio_bindings.json.bak")
-  addins <- glue::glue("{pref_path}/keybindings/addins.json.bak")
-  snippets <- glue::glue("{pref_path}/snippets/r.snippets.bak")
-
-
-  # Make a vector of files to copy that exists
-  files_to_copy_name <- c(prefs, bindings, addins, snippets)
-  files_to_copy <- fs::file_exists(files_to_copy_name)
-  files_to_copy_name <-
-    files_to_copy_name[files_to_copy] # Keep TRUE value
-  return(files_to_copy_name)
-}
