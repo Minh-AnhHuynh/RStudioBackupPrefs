@@ -1,10 +1,10 @@
 ---
-  title: "RStudioBackupPrefs"
-  output: rmarkdown::html_vignette
-  vignette: >
-    %\VignetteIndexEntry{RStudioBackupPrefs}
-    %\VignetteEngine{knitr::rmarkdown}
-    %\VignetteEncoding{UTF-8}
+title: "RStudioBackupPrefs"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{RStudioBackupPrefs}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
