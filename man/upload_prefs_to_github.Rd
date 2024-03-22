@@ -25,7 +25,7 @@ Add, commit and push your .json files automatically with the name
 }
 \examples{
 
-# Setup (inspired from gert)
+# Setup
 oldwd <- getwd()
 repo <- file.path(tempdir(), "myrepo")
 gert::git_init(repo)
@@ -37,7 +37,7 @@ upload_prefs_to_github("R/rstudio_preferences/")
 # Upload preferences to currently active git repository with a custom git commit message
 upload_prefs_to_github("R/rstudio_preferences/", git_message = "Backup preferences")
 
-# cleanup
+# Cleanup
 setwd(oldwd)
 unlink(repo, recursive = TRUE)
 

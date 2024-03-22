@@ -27,13 +27,16 @@ import_from_github <- function(clone_git = FALSE, git_url = NULL) {
       list_github_repositories()
       repo <- readline("Enter url of your git repository: ")
     }
-    tryCatch({
-      clone_path <- gert::git_clone(repo)
-      return(clone_path)
-    }, error = function(e) {
-      message("Error occurred while cloning the repository:", e$message)
-      return(NULL)
-    })
+    tryCatch(
+      {
+        clone_path <- gert::git_clone(repo)
+        return(clone_path)
+      },
+      error = function(e) {
+        message("Error occurred while cloning the repository:", e$message)
+        return(NULL)
+      }
+    )
   } else {
     message("Pull git repository.")
     gert::git_pull()

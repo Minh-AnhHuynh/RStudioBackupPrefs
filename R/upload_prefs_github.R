@@ -10,7 +10,7 @@
 #' @export
 #' @examples
 #'
-#' # Setup (inspired from gert)
+#' # Setup
 #' oldwd <- getwd()
 #' repo <- file.path(tempdir(), "myrepo")
 #' gert::git_init(repo)
@@ -22,7 +22,7 @@
 #' # Upload preferences to currently active git repository with a custom git commit message
 #' upload_prefs_to_github("R/rstudio_preferences/", git_message = "Backup preferences")
 #'
-#' # cleanup
+#' # Cleanup
 #' setwd(oldwd)
 #' unlink(repo, recursive = TRUE)
 #'
@@ -36,15 +36,24 @@ upload_prefs_to_github <-
     }
     check_json_existence(preference_path)
 
+    # Change repository if different
+    oldwd <- getwd()
+    if (interactive() == TRUE) {
+      session_is_interactive <- TRUE
+    } else {
+      session_is_interactive <- FALSE
+    }
+    if (!repository == ".") setwd(repository)
     # Initiate a repository and create a GitHub repository if no initiated repository
-    if (has_git_repository() == FALSE) {
-      if (yesno::yesno("There is no initiated git repository. Do you want to initiate one and create a new repository?") == TRUE) {
+    if (has_git_repository() == FALSE && session_is_interactive == TRUE) {
+      if (yesno::yesno("There is no initiated git repository. Do you want to initiate one and create a new repository on Github?") == TRUE) {
         usethis::use_git()
         usethis::use_github()
+      } else {
+        stop("You can't upload preferences without a git repository.")
       }
     }
-
-    if (git_status()$staged == TRUE) {
+    if (any(git_status()$staged) == TRUE && session_is_interactive == TRUE) {
       # Prompt user to confirm whether to unstage files
       yes_unstage <-
         yesno::yesno("There are staged files, do you want to unstage?")
@@ -61,16 +70,17 @@ upload_prefs_to_github <-
       }
     }
 
-    if (gert::git_status()$modified == TRUE) {
-      # Prompt user to stash the files
-      yes_stash <- yesno::yesno("There are modified files, do you want to stash them?")
-      if (yes_stash == TRUE) {
-        # Stash files
-        gert::git_stash_save()
-      }
-    }
 
     # Add files to Git repository
+    prefs_files <-
+      c(
+        "rstudio-prefs.json",
+        "rstudio_bindings.json",
+        "addins.json",
+        "r.snippets",
+        "editor_bindings.json"
+      )
+
     tryCatch(
       {
         git_add(glue::glue("{preference_path}/{prefs_files}")) # Relative path names
@@ -80,14 +90,8 @@ upload_prefs_to_github <-
       }
     )
     # Commit changes
-    tryCatch(
-      {
-        git_commit(message = glue::glue(git_message))
-      },
-      error = function(e) {
-        stop("Error: failed to commit changes.")
-      }
-    )
+    git_commit(message = glue::glue(git_message))
+
     # Push changes to GitHub
     tryCatch(
       {
@@ -97,4 +101,7 @@ upload_prefs_to_github <-
         stop("Error: failed to push changes to GitHub.")
       }
     )
+
+    # Go back to previous working directory if repository was changed
+    setwd(oldwd)
   }

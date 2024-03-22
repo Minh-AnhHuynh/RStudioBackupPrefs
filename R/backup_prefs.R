@@ -1,5 +1,3 @@
-
-
 #' Backup of R Studio preferences.
 #'
 #' Copy rstudio_bindings.json, addins.json rstudio-bindings.json and r.snippets

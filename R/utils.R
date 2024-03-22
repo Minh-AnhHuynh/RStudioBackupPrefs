@@ -105,7 +105,10 @@ rstudio_config_path <- function(...) {
 #' @return A list of the current public repositories for the current git user
 #' @export
 #' @examples
+#' list_github_repositories("cran")
+#' \dontrun{
 #' list_github_repositories()
+#' }
 #'
 list_github_repositories <- function(username = get_current_git_username) {
   if (is.function(username)) {
