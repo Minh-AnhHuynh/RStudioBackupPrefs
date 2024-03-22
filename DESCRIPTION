@@ -1,7 +1,7 @@
 Type: Package
 Package: RStudioBackupPrefs
-Title: Easily backup your RStudio preferences easily and import them on
-    another computer from github
+Title: Easily backup your RStudio preferences and import them on
+    from GitHub
 Version: 0.1.0
 Author: Minh-Anh Huynh
 Maintainer: Minh-Anh Huynh <minh-anh.huynh@etu.u-paris.fr>
