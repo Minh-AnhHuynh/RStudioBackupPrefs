@@ -7,6 +7,7 @@ Author: Minh-Anh Huynh
 Maintainer: Minh-Anh Huynh <minh-anh.huynh@etu.u-paris.fr>
 Description: The package provides a few short functions that automates
     backup and import from local or github files.
+
 License: MIT + file LICENSE
 URL: https://github.com/Minh-AnhHuynh/RStudioBackupPrefs,
     https://minh-anhhuynh.github.io/RStudioBackupPrefs/

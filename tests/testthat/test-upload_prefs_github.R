@@ -36,6 +36,7 @@ test_that("upload_prefs_to_github works", {
   # Call the upload_prefs_to_github() function again, this time with no arguments
   upload_prefs_to_github()
 
+
   # Verify that the function unstages the test files and pushes the changes to GitHub
   expect_true(git_reset())
   expect_true(git_push())

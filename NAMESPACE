@@ -2,7 +2,6 @@
 
 export(backup_prefs)
 export(copy_files_to_local)
-export(has_git_repository)
 export(import_from_github)
 export(import_local_prefs)
 export(list_github_repositories)

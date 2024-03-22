@@ -9,6 +9,7 @@
 #' @seealso [import_from_github()] to just import your github, and [import_local_prefs()] to copy local files to your rstudio's preference folders
 #' @details Function wrapper of `import_from_github()` followed by `import_local_prefs()`
 #'
+
 #' @param clone_git boolean. Default is FALSE. Clone git for first time usage. A convenience function to avoid doing it manually, but it's essentially the same as doing `gert::git_clone("github_url")`. It will clone the repository inside your current working directory.
 #' @param preference_path string. Input the file path where your preferences.json
 #'   files are located.
