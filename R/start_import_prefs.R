@@ -1,10 +1,12 @@
 #' Start the import process from Github by default or your local json preference files
 #'
-#' Import preferences by cloning a link or pulling from your GitHub. The
-#' function will start to pull from the currently active GitHub repository, then will import the local .json
-#' preference files. The function will look for the specific .json files only, in the given file path.
+#' @description Import preferences by cloning a link or pulling from your GitHub. The
+#' function will start to pull from the currently active GitHub repository, then
+#' will import the local .json preference files. The function will look for the
+#' specific .json files only, in the given file path. If cloning is chosen, the
+#' folder will be inside the working directory.
 #'
-#' @seealso [import_from_github()] to just import, and [import_local_prefs()] to import locally
+#' @seealso [import_from_github()] to just import your github, and [import_local_prefs()] to copy local files to your rstudio's preference folders
 #' @details Function wrapper of `import_from_github()` followed by `import_local_prefs()`
 #'
 
@@ -13,28 +15,33 @@
 #'   files are located.
 #' @param pull_github boolean. Use TRUE to pull or clone from GitHub, otherwise FALSE
 #'   to just import your local files.
-#' @param git_url string. Allow to user the bypass the request of the git url to
-#'   directly clone the desired git url repository
+#' @param git_url string. Allows to user the bypass the request of the git url to
+#'   directly clone the desired git url repository to the working directory.
 #'
-#' @return Clone or pull from your github repository and import the RStudio preferences to the internal R Studio
-#'   preference folder.
+#' @returns Clone repository or preference files copied to RStudio's preference folder
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' start_import_prefs(pull_github = FALSE, preference_path = "R/rstudio_preferences/")
-#' start_import_prefs(pull_github = TRUE)
-#' start_import_prefs(clone_git = TRUE)
-#' }
+#' # To import your preferences from locally stored preferences files:
 #'
+#' # Dummy preference files
+#' temp_dir <- tempdir()
+#' fs::file_create(file.path(temp_dir, "addins.json"))
+#' fs::file_create(file.path(temp_dir, "rstudio_bindings.json"))
+#' fs::file_create(file.path(temp_dir, "r.snippets"))
+#' fs::file_create(file.path(temp_dir, "rstudio-prefs.json"))
+#' start_import_prefs(pull_github = FALSE, preference_path = temp_dir)
+#'
+#' # To import your preferences from Github:
+#' try(start_import_prefs())
 start_import_prefs <-
   function(preference_path = "R/rstudio_preferences/",
-           pull_github = TRUE,
+           pull_github = FALSE,
            clone_git = FALSE,
            git_url = NULL) {
     if (pull_github == TRUE) {
       clone_path <- import_from_github(clone_git, git_url)
-      if (clone_git) {
+      if (clone_git == TRUE) {
         preference_path <- paste0(get_latest_directory(clone_path), preference_path)
       }
     }

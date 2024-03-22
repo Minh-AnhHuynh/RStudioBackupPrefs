@@ -21,16 +21,11 @@ should contain your backup preference files. The function will attempt to pull y
 }
 \examples{
 \dontrun{
-# Setup
-oldwd <- getwd()
-repo <- file.path(tempdir(), "myrepo")
-gert::git_init(repo)
-setwd(repo)
-
-# Use import_from_github
+# Pull changes from a GitHub repository
 import_from_github()
-import_from_github(clone_git = TRUE)
-import_from_github(git_url = https://git_url.com)
-}
 
+# Clone a repository from GitHub
+import_from_github(clone_git = TRUE)
+import_from_github(git_url = "https://github.com/cran/dummies")
+}
 }

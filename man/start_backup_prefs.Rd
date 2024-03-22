@@ -2,38 +2,44 @@
 % Please edit documentation in R/start_backup_prefs.R
 \name{start_backup_prefs}
 \alias{start_backup_prefs}
-\title{Start the backup process}
+\title{Start the backup process from local to github}
 \usage{
 start_backup_prefs(
   github_backup = FALSE,
   copy_to_local = FALSE,
+  preference_path = "R/rstudio_preferences",
   open_backup_path = FALSE,
-  preference_path = "R/rstudio_preferences/",
   git_message = "Backup of R Studio preferences on {Sys.Date()}",
   repository = "."
 )
 }
 \arguments{
-\item{github_backup}{boolean: Upload file to github.}
+\item{github_backup}{boolean. Upload file to github.}
 
-\item{copy_to_local}{boolean: Copy your .json files to local if TRUE.}
+\item{copy_to_local}{boolean. Copy your .json files to local if TRUE. It will
+copy the files to the repository folder if specified.}
 
-\item{open_backup_path}{boolean: Open the default backup folder for convenience if TRUE.}
+\item{preference_path}{string. Path to local backup folder}
 
-\item{preference_path}{string: Path to local backup folder}
+\item{open_backup_path}{boolean. Open the default backup folder for
+convenience if TRUE.}
 
-\item{git_message}{string: Your git commit message. Default is Backup of R Studio preferences on \code{Sys.Date()}."}
+\item{git_message}{string. Your git commit message. Default is "Backup of R
+Studio preferences on \code{Sys.Date()}."}
 
-\item{repository}{string. Defaults to the current git repository.}
+\item{repository}{string. Defaults to the current git repository. If you want
+to upload to another repository, specify the path.}
 }
 \value{
-Copy rstudio_bindings.json, addins.json rstudio-bindings.json and
-r.snippets to .bak files in their native config folder. Then copy files to
-working directory in path and executes git push if \code{github_backup = TRUE}
+Backup rstudio_bindings.json, addins.json rstudio-bindings.json and
+r.snippets to .bak files in their native rstudioconfig folder. Then copy
+files to working directory in chosen file path and executes git push if
+\code{github_backup = TRUE}
 }
 \description{
-Function will start backing up your files in their folder to .bak. Make sure to have a git initiated
-repository if you wish to upload to your GitHub repository.
+Function will start backing up your files in their folder to .bak. Make sure
+to have a git initiated repository if you wish to upload to your GitHub
+repository.
 }
 \details{
 Function wrapper using \code{backup_prefs()}. if github_backup = TRUE,
@@ -41,15 +47,18 @@ will then use those functions: \code{copy_files_to_local()} and
 \code{upload_prefs_to_github()}
 }
 \examples{
-\dontshow{if (has_git_repository()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-# Leave defaults to simply backup.
-start_backup_prefs()
+# Copy files to the selected directory
+temp_dir <- tempdir()
+start_backup_prefs(copy_to_local = TRUE, preference_path = temp_dir)
+unlink(temp_dir)
 
-# Customize preferences and git_message
-start_backup_prefs(
-  github_backup = TRUE,
-  preference_path = "R/rstudio_preferences/",
-  git_message = "Backup preferences"
-)
-\dontshow{\}) # examplesIf}
+\dontrun{
+# Backup prefs to the current git initiated repository
+start_backup_prefs(github_backup = TRUE)
+
+# Backup prefs to another local git repository that is not the current one,
+# matching one in the cloud
+start_backup_prefs(github_backup = TRUE, repository = "../MyRStudioPrefs")
+}
+
 }

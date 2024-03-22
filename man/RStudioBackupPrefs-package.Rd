@@ -6,7 +6,7 @@
 \alias{RStudioBackupPrefs-package}
 \title{RStudioBackupPrefs: Easily backup your RStudio preferences easily and import them on another computer from github}
 \description{
-The package provides a few short functions that automates backup and import from local or github files. Check the documentation for usage.
+The package provides a few short functions that automates backup and import from local or github files.
 }
 \seealso{
 Useful links:

@@ -12,25 +12,19 @@
 #'
 #' @examples
 #' \dontrun{
-#' # Setup
-#' oldwd <- getwd()
-#' repo <- file.path(tempdir(), "myrepo")
-#' gert::git_init(repo)
-#' setwd(repo)
-#'
-#' # Use import_from_github
+#' # Pull changes from a GitHub repository
 #' import_from_github()
-#' import_from_github(clone_git = TRUE)
-#' import_from_github(git_url = https://git_url.com)
-#' }
 #'
-import_from_github <- function(clone_git = FALSE,
-                               git_url = NULL) {
+#' # Clone a repository from GitHub
+#' import_from_github(clone_git = TRUE)
+#' import_from_github(git_url = "https://github.com/cran/dummies")
+#' }
+import_from_github <- function(clone_git = FALSE, git_url = NULL) {
   if (clone_git == TRUE || has_git_repository() == FALSE) {
     if (!is.null(git_url)) {
       repo <- git_url
     } else {
-      list_github_repositories(get_current_git_username())
+      list_github_repositories()
       repo <- readline("Enter url of your git repository: ")
     }
     tryCatch(
