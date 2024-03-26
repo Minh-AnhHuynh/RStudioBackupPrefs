@@ -123,17 +123,18 @@ repository for your RStudio settings.</p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Minh-AnhHuynh/RStudioBackupPrefs" class="external-link">RStudioBackupPrefs</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/start_backup_prefs.html">start_backup_prefs</a></span><span class="op">(</span>github_backup <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>Back up using a specific folder containing your preference files. If
-inside an R project, you’d want to specify the path to the R folder that
-is outside of your current one (else it’s the same as the current
-one)</p>
+your working directory is currently inside an R project, you’d want to
+specify the path to the R folder that is outside of your current one
+(else it’s the same as the current one)</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/start_backup_prefs.html">start_backup_prefs</a></span><span class="op">(</span>github_backup <span class="op">=</span> <span class="cn">TRUE</span>, repository <span class="op">=</span> <span class="st">"../MyRStudioPrefs"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="import-preferences-from-github">Import preferences from Github<a class="anchor" aria-label="anchor" href="#import-preferences-from-github"></a>
 </h3>
-<p>In any case, the function will <strong>copy the files</strong> to the
-rstudio preference folder (import), refresh with <code>F10</code>.</p>
+<p>The function will pull from github by default, and will to
+<strong>copy the files</strong> to the rstudio preference folder
+(import).</p>
 <div class="section level4">
 <h4 id="you-have-a-new-r-project-and-want-to-import-your-preferences-from-github">You have a new R project and want to import your preferences from
 Github<a class="anchor" aria-label="anchor" href="#you-have-a-new-r-project-and-want-to-import-your-preferences-from-github"></a>
@@ -145,7 +146,7 @@ same function.</p>
 url</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/start_import_prefs.html">start_import_prefs</a></span><span class="op">(</span>clone_git <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p>You can specify the git url directly</p>
+<p>You can specify the git url directly:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/start_import_prefs.html">start_import_prefs</a></span><span class="op">(</span>clone_git <span class="op">=</span> <span class="cn">TRUE</span>, git_url <span class="op">=</span> <span class="st">"https://github.com/cran/dummies"</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -154,20 +155,29 @@ url</p>
 want to pull<a class="anchor" aria-label="anchor" href="#you-are-in-the-r-project-containing-your-preference-files-but-you-want-to-pull"></a>
 </h4>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/start_import_prefs.html">start_import_prefs</a></span><span class="op">(</span>pull_git <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/start_import_prefs.html">start_import_prefs</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="your-files-are-in-a-different-r-projectgit-folder-and-you-want-to-do-a-git-pull">Your files are in a different R Project/Git folder and you want to
+do a git pull<a class="anchor" aria-label="anchor" href="#your-files-are-in-a-different-r-projectgit-folder-and-you-want-to-do-a-git-pull"></a>
+</h4>
+<p><code>git pull</code> will work inside a git folder regardless of the
+file path.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/start_import_prefs.html">start_import_prefs</a></span><span class="op">(</span><span class="st">"../MyRStudioPrefs/R/rstudio_preferences/"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="your-files-are-already-in-your-current-project-specify-your-path">Your files are already in your current project, specify your
 path<a class="anchor" aria-label="anchor" href="#your-files-are-already-in-your-current-project-specify-your-path"></a>
 </h4>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/start_import_prefs.html">start_import_prefs</a></span><span class="op">(</span><span class="st">"R/rstudio_preferences/"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/start_import_prefs.html">start_import_prefs</a></span><span class="op">(</span>pull_github <span class="op">=</span> <span class="cn">FALSE</span>, <span class="st">"R/rstudio_preferences/"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
 <h3 id="offline-backup">Offline backup<a class="anchor" aria-label="anchor" href="#offline-backup"></a>
 </h3>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Choose a path</span></span>
 <span><span class="fu"><a href="../reference/start_backup_prefs.html">start_backup_prefs</a></span><span class="op">(</span>preference_path <span class="op">=</span> <span class="st">"R/rstudio_preferences"</span>, copy_to_local <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span>
 <span></span>
@@ -185,7 +195,7 @@ the local folder.</p>
 </h2>
 <p>To use the GitHub functionalities, you need to have an initiated
 repository. Simply initiate one with:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Assuming you're in your desired folder path:</span></span>
 <span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_git.html" class="external-link">use_git</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github.html" class="external-link">use_github</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -197,9 +207,9 @@ repository. Simply initiate one with:</p>
 <span><span class="fu">gitcreds</span><span class="fu">::</span><span class="fu"><a href="https://gitcreds.r-lib.org/reference/gitcreds_get.html" class="external-link">gitcreds_set</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Make sure to put your user.name and user.email in global config. To
 do so, go to Terminal and write:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>git init</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>git config <span class="op">--</span>global user<span class="op">.</span><span class="fu">name</span> <span class="st">"YOUR FULL NAME"</span></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>git config <span class="op">--</span>global user<span class="op">.</span><span class="fu">email</span> <span class="st">"YOUR EMAIL ADDRESS"</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>git init</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>git config <span class="op">--</span>global user<span class="op">.</span><span class="fu">name</span> <span class="st">"YOUR FULL NAME"</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>git config <span class="op">--</span>global user<span class="op">.</span><span class="fu">email</span> <span class="st">"YOUR EMAIL ADDRESS"</span></span></code></pre></div>
 <p>Check out <a href="https://happygitwithr.com/" class="external-link">Happy Git with R</a>
 for more information.</p>
 </div>
