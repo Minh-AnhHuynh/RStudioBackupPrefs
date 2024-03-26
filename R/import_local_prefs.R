@@ -38,8 +38,12 @@ import_local_prefs <-
       file.copy(keybind_path, glue::glue("{rstudio_pref_path}/keybindings"), overwrite = TRUE),
       file.copy(rstudio_pref_file, glue::glue("{rstudio_pref_path}"), overwrite = TRUE)
     )
-
+    rstudio_pref_path_keybindings <- glue::glue("{rstudio_pref_path}/keybindings")
     cli::cli_alert_success("Sucessfully imported RStudio preferences.")
-    cli::cli_alert_success(glue::glue("Files copied to {rstudio_pref_path}/keybindings"), wrap = TRUE)
-    cli::cli_alert_success(glue::glue("Files copied to {rstudio_pref_path}."), wrap = TRUE)
+    cli::cli_alert_success("{.file {keybinding_files}} copied to {.path {rstudio_pref_path_keybindings}}", wrap = TRUE)
+    cli::cli_alert_success("{.file {rstudio_pref}} copied to {.path {rstudio_pref_path}}.", wrap = TRUE)
+
+    # Refresh RStudio to reload preferences, especially for themes
+    .rs.restartR()
+
   }
