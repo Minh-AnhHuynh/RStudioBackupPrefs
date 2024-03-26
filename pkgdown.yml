@@ -1,9 +1,9 @@
-pandoc: 2.19.2
+pandoc: 3.1.11
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   my-vignette: my-vignette.html
-last_built: 2023-07-04T15:41Z
+last_built: 2024-03-26T15:02Z
 urls:
   reference: https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference
   article: https://minh-anhhuynh.github.io/RStudioBackupPrefs/articles
