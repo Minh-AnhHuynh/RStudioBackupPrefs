@@ -41,9 +41,9 @@
 #' }
 #'
 start_backup_prefs <-
-  function(github_backup = FALSE,
+  function(preference_path = "R/rstudio_preferences",
+           github_backup = FALSE,
            copy_to_local = FALSE,
-           preference_path = "R/rstudio_preferences",
            open_backup_path = FALSE,
            git_message = "Backup of R Studio preferences on {Sys.Date()}",
            repository = ".") {

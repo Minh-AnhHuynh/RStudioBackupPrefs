@@ -5,21 +5,21 @@
 \title{Start the backup process from local to github}
 \usage{
 start_backup_prefs(
+  preference_path = "R/rstudio_preferences",
   github_backup = FALSE,
   copy_to_local = FALSE,
-  preference_path = "R/rstudio_preferences",
   open_backup_path = FALSE,
   git_message = "Backup of R Studio preferences on {Sys.Date()}",
   repository = "."
 )
 }
 \arguments{
+\item{preference_path}{string. Path to local backup folder}
+
 \item{github_backup}{boolean. Upload file to github.}
 
 \item{copy_to_local}{boolean. Copy your .json files to local if TRUE. It will
 copy the files to the repository folder if specified.}
-
-\item{preference_path}{string. Path to local backup folder}
 
 \item{open_backup_path}{boolean. Open the default backup folder for
 convenience if TRUE.}
