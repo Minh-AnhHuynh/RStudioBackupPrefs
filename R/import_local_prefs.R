@@ -44,5 +44,5 @@ import_local_prefs <-
     cli::cli_alert_success("{.file {rstudio_pref}} copied to {.path {rstudio_pref_path}}.", wrap = TRUE)
 
     # Refresh RStudio to reload preferences, especially for themes
-    if (interactive()) .rs.restartR()
+    if (interactive()) rstudioapi::restartSession()
   }

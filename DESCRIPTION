@@ -20,7 +20,8 @@ Imports:
     rappdirs,
     stringr,
     usethis,
-    yesno
+    yesno,
+    rstudioapi
 Suggests: 
     assertthat,
     covr,
