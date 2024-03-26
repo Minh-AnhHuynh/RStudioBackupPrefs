@@ -6,7 +6,7 @@
 \usage{
 start_import_prefs(
   preference_path = "R/rstudio_preferences/",
-  pull_github = FALSE,
+  pull_github = TRUE,
   clone_git = FALSE,
   git_url = NULL
 )

@@ -4,13 +4,14 @@
 \alias{import_from_github}
 \title{Import preferences from a GitHub url}
 \usage{
-import_from_github(clone_git = FALSE, git_url = NULL)
+import_from_github(clone_git = FALSE, git_url = NULL, git_path = ".")
 }
 \arguments{
 \item{clone_git}{boolean. Use this option if you haven't initiated a repository.}
 
 \item{git_url}{string. Allow to user the bypass the request of the git url to
-directly clone the desired git url repository}
+directly clone the desired git url repository
+@param git_path string. Git path to the repository to pull from.}
 }
 \value{
 Clone or pull from a GitHub link from a user prompt.
