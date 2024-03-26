@@ -55,6 +55,7 @@ librarian::shelf("Minh-AnhHuynh/RStudioBackupPrefs")
 # You can queue up multiple package in one line.
 ```
 
+
 # Quick Start
 
 The idea is to install this package on a new R project or machine,
@@ -66,25 +67,29 @@ For backing up, the idea is to upload your current RStudio settings to
 the currently git initiated repository, or to choose a dedicated git
 repository for your RStudio settings.
 
+
+
 ## Upload preferences to Github
 
 ``` r
 library(RStudioBackupPrefs)
 start_backup_prefs(github_backup = TRUE)
 ```
-
-Back up using a specific folder containing your preference files. If
-inside an R project, you'd want to specify the path to the R folder that
-is outside of your current one (else it's the same as the current one)
+Back up using a specific folder containing your preference files. If your
+working directory is currently inside an R project, you'd want to specify the
+path to the R folder that is outside of your current one (else it's the same as
+the current one)
 
 ``` r
 start_backup_prefs(github_backup = TRUE, repository = "../MyRStudioPrefs")
 ```
 
+
 ## Import preferences from Github
 
-In any case, the function will **copy the files** to the rstudio
-preference folder (import), refresh with `F10`.
+The function will pull from github by default, and will to **copy the files** to
+the rstudio preference folder (import).
+
 
 ### You have a new R project and want to import your preferences from Github
 
@@ -98,7 +103,7 @@ Use `clone_git = TRUE`, the function will ask for the git url
 start_import_prefs(clone_git = TRUE)
 ```
 
-You can specify the git url directly
+You can specify the git url directly:
 
 ``` r
 start_import_prefs(clone_git = TRUE, git_url = "https://github.com/cran/dummies")
@@ -107,14 +112,27 @@ start_import_prefs(clone_git = TRUE, git_url = "https://github.com/cran/dummies"
 ### You are in the R project containing your preference files, but you want to pull
 
 ``` r
-start_import_prefs(pull_git = TRUE)
+start_import_prefs()
+
 ```
+
+
+### Your files are in a different R Project/Git folder and you want to do a git pull
+
+`git pull` will work inside a git folder regardless of the file path.
+
+``` r
+start_import_prefs("../MyRStudioPrefs/R/rstudio_preferences/")
+
+```
+
 
 ### Your files are already in your current project, specify your path
 
 ``` r
-start_import_prefs("R/rstudio_preferences/")
+start_import_prefs(pull_github = FALSE, "R/rstudio_preferences/")
 ```
+
 
 ## Offline backup
 
@@ -131,6 +149,8 @@ start_backup_prefs(open_backup_path = TRUE)
 
 Use `start_import_prefs()` to import your preferences from the local
 folder.
+
+
 
 # Github setup
 
