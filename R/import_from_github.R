@@ -19,7 +19,7 @@
 #' import_from_github(clone_git = TRUE)
 #' import_from_github(git_url = "https://github.com/cran/dummies")
 #' }
-import_from_github <- function(clone_git = FALSE, git_url = NULL) {
+import_from_github <- function(clone_git = FALSE, git_url = NULL, git_path = ".") {
   if (clone_git == TRUE || has_git_repository() == FALSE) {
     if (!is.null(git_url)) {
       repo <- git_url
@@ -38,7 +38,7 @@ import_from_github <- function(clone_git = FALSE, git_url = NULL) {
       }
     )
   } else {
-    message("Pull git repository.")
-    gert::git_pull()
+    message(glue::glue("Pull {gert::git_find(git_path)} git repository"))
+    gert::git_pull(repo = git_path)
   }
 }
