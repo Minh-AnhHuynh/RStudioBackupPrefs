@@ -7,7 +7,6 @@
 #' @param repository string. Defaults to the current git repository.
 #'
 #' @return Upload your .json files to currently active git repository.
-#' @export
 #' @examples
 #'
 #' # Setup
@@ -44,6 +43,8 @@ upload_prefs_to_github <-
       session_is_interactive <- FALSE
     }
     if (!repository == ".") setwd(repository)
+
+
     # Initiate a repository and create a GitHub repository if no initiated repository
     if (has_git_repository() == FALSE && session_is_interactive == TRUE) {
       if (yesno::yesno("There is no initiated git repository. Do you want to initiate one and create a new repository on Github?") == TRUE) {
@@ -90,7 +91,7 @@ upload_prefs_to_github <-
       }
     )
     # Commit changes
-    git_commit(message = glue::glue(git_message))
+      git_commit(message = glue::glue(git_message))
 
     # Push changes to GitHub
     tryCatch(

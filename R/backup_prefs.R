@@ -10,7 +10,6 @@
 #'
 #' @return Copy rstudio_bindings.json, addins.json rstudio-bindings.json and
 #'   r.snippets to .bak in your R Studio config path.
-#' @export
 #'
 #' @examples backup_prefs(open_backup_path = FALSE)
 #'

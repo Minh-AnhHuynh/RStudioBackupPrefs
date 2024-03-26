@@ -6,7 +6,6 @@
 #'
 #' @return Copy addins.json, r.snippets, rstudio_bindings.json, prefs.json to
 #'   folder in your working directory
-#' @export
 #'
 #' @examples
 #' temp_dir <- tempdir()

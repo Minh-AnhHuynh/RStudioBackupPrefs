@@ -9,7 +9,6 @@
 #'   @param git_path string. Git path to the repository to pull from.
 #'
 #' @return Clone or pull from a GitHub link from a user prompt.
-#' @export
 #'
 #' @examples
 #' \dontrun{
