@@ -36,11 +36,13 @@
 #' try(start_import_prefs())
 start_import_prefs <-
   function(preference_path = "R/rstudio_preferences/",
-           pull_github = FALSE,
+           pull_github = TRUE,
            clone_git = FALSE,
            git_url = NULL) {
     if (pull_github == TRUE) {
-      clone_path <- import_from_github(clone_git, git_url)
+      # Even if preference path is not in the root of a git folder, git pull
+      # will still work
+      clone_path <- import_from_github(clone_git, git_url, preference_path)
       if (clone_git == TRUE) {
         preference_path <- paste0(get_latest_directory(clone_path), preference_path)
       }
