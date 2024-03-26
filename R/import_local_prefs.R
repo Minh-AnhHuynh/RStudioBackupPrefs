@@ -45,5 +45,4 @@ import_local_prefs <-
 
     # Refresh RStudio to reload preferences, especially for themes
     .rs.restartR()
-
   }
