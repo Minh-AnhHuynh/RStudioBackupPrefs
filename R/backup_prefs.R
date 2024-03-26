@@ -10,7 +10,7 @@
 #'
 #' @return Copy rstudio_bindings.json, addins.json rstudio-bindings.json and
 #'   r.snippets to .bak in your R Studio config path.
-#'
+#' @noRd
 #' @examples backup_prefs(open_backup_path = FALSE)
 #'
 backup_prefs <-
@@ -68,6 +68,6 @@ backup_prefs <-
       )
     }
     if (open_backup_path == TRUE) {
-      shell.exec(glue("{rstudio_config_path()}"))
+      shell.exec(glue::glue("{rstudio_config_path()}"))
     }
   }

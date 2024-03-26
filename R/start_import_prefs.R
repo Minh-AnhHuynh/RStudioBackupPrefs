@@ -6,7 +6,6 @@
 #' specific .json files only, in the given file path. If cloning is chosen, the
 #' folder will be inside the working directory.
 #'
-#' @seealso [import_from_github()] to just import your github, and [import_local_prefs()] to copy local files to your rstudio's preference folders
 #' @details Function wrapper of `import_from_github()` followed by `import_local_prefs()`
 #'
 

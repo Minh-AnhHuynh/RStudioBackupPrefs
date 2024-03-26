@@ -6,7 +6,7 @@
 #'
 #' @return Copy addins.json, r.snippets, rstudio_bindings.json, prefs.json to
 #'   folder in your working directory
-#'
+#' @noRd
 #' @examples
 #' temp_dir <- tempdir()
 #' copy_files_to_local(temp_dir)

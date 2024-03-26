@@ -51,6 +51,3 @@ start_import_prefs(pull_github = FALSE, preference_path = temp_dir)
 start_import_prefs()
 }
 }
-\seealso{
-\code{\link[=import_from_github]{import_from_github()}} to just import your github, and \code{\link[=import_local_prefs]{import_local_prefs()}} to copy local files to your rstudio's preference folders
-}

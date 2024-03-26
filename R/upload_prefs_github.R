@@ -7,6 +7,7 @@
 #' @param repository string. Defaults to the current git repository.
 #'
 #' @return Upload your .json files to currently active git repository.
+#' @noRd
 #' @examples
 #'
 #' # Setup
@@ -54,7 +55,7 @@ upload_prefs_to_github <-
         stop("You can't upload preferences without a git repository.")
       }
     }
-    if (any(git_status()$staged) == TRUE && session_is_interactive == TRUE) {
+    if (any(gert::git_status()$staged) == TRUE && session_is_interactive == TRUE) {
       # Prompt user to confirm whether to unstage files
       yes_unstage <-
         yesno::yesno("There are staged files, do you want to unstage?")
@@ -84,19 +85,19 @@ upload_prefs_to_github <-
 
     tryCatch(
       {
-        git_add(glue::glue("{preference_path}/{prefs_files}")) # Relative path names
+        gert::git_add(glue::glue("{preference_path}/{prefs_files}")) # Relative path names
       },
       error = function(e) {
         stop("Error: failed to add files to Git repository.")
       }
     )
     # Commit changes
-      git_commit(message = glue::glue(git_message))
+    gert::git_commit(message = glue::glue(git_message))
 
     # Push changes to GitHub
     tryCatch(
       {
-        git_push()
+        gert::git_push()
       },
       error = function(e) {
         stop("Error: failed to push changes to GitHub.")

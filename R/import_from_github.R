@@ -6,10 +6,10 @@
 #' @param clone_git boolean. Use this option if you haven't initiated a repository.
 #' @param git_url string. Allow to user the bypass the request of the git url to
 #'   directly clone the desired git url repository
-#'   @param git_path string. Git path to the repository to pull from.
+#' @param git_path string. Git path to the repository to pull from.
 #'
 #' @return Clone or pull from a GitHub link from a user prompt.
-#'
+#' @noRd
 #' @examples
 #' \dontrun{
 #' # Pull changes from a GitHub repository

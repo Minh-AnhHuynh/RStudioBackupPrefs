@@ -6,6 +6,7 @@
 #'
 #' @return Import addins.json, rstudio_bindings.json, r.snippets to the
 #'   keybindings folder and rstudio-prefs.json to the RStudio folder
+#' @noRd
 #' @examples
 #' \dontrun{
 #' import_local_prefs("R/rstudio_preferences/")

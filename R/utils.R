@@ -36,7 +36,7 @@ check_json_existence <- function(preference_path = ".") {
       "keybindings/editor_bindings.json"
     )
   local_files <-
-    fs::file_exists(glue("{preference_path}/{prefs_files}"))
+    fs::file_exists(glue::glue("{preference_path}/{prefs_files}"))
   if (!any(local_files)) {
     stop("No .json preference files are found. Please check the file path.")
   }
@@ -69,7 +69,7 @@ verify_is_error <- function(expr) {
 #' Simply check for git status and assert that it is error free.
 #' @noRd
 has_git_repository <- function() {
-  !verify_is_error(git_find())
+  !verify_is_error(gert::git_find())
 }
 
 
