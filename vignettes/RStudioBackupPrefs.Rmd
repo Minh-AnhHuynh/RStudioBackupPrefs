@@ -97,13 +97,15 @@ You are required to clone the repository containing your preferences
 first. For convenience you can clone a github folder and copy with the
 same function.
 
-Use `clone_git = TRUE`, the function will ask for the git url
+Use `clone_git = TRUE`, the function will ask for the git url and list the github repositories under the current git username
+
 
 ``` r
 start_import_prefs(clone_git = TRUE)
 ```
 
-You can specify the git url directly:
+You can specify the git url directly.
+Use `list_github_repositories()` to list the repositories under your current git username.
 
 ``` r
 start_import_prefs(clone_git = TRUE, git_url = "https://github.com/cran/dummies")
