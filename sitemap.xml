@@ -22,21 +22,6 @@
     <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/index.html</loc>
   </url>
   <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/RStudioBackupPrefs-package.html</loc>
-  </url>
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/backup_prefs.html</loc>
-  </url>
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/copy_files_to_local.html</loc>
-  </url>
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/import_from_github.html</loc>
-  </url>
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/import_local_prefs.html</loc>
-  </url>
-  <url>
     <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/index.html</loc>
   </url>
   <url>
@@ -47,8 +32,5 @@
   </url>
   <url>
     <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/start_import_prefs.html</loc>
-  </url>
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/upload_prefs_to_github.html</loc>
   </url>
 </urlset>
