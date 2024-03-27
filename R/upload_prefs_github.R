@@ -82,16 +82,13 @@ upload_prefs_to_github <-
         "r.snippets",
         "editor_bindings.json"
       )
+    list_prefs <- list.files(preference_path)
+    filtered_files <- list_prefs[list_prefs %in% prefs_files]
+    filtered_files <- file.path(preference_path, filtered_files)
+    gert::git_add(filtered_files)
 
-    tryCatch(
-      {
-        gert::git_add(glue::glue("{preference_path}/{prefs_files}")) # Relative path names
-      },
-      error = function(e) {
-        stop("Error: failed to add files to Git repository.")
-      }
-    )
     # Commit changes
+    gert::git_status()
     gert::git_commit(message = glue::glue(git_message))
 
     # Push changes to GitHub
