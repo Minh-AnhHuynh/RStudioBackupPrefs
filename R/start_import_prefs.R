@@ -10,7 +10,7 @@
 #'
 
 #' @param clone_git boolean. Default is FALSE. Clone git for first time usage. A convenience function to avoid doing it manually, but it's essentially the same as doing `gert::git_clone("github_url")`. It will clone the repository inside your current working directory.
-#' @param preference_path string. Input the file path where your preferences.json
+#' @param preference_path string. Input the file path where your preferences json
 #'   files are located.
 #' @param pull_github boolean. Use TRUE to pull or clone from GitHub, otherwise FALSE
 #'   to just import your local files.
