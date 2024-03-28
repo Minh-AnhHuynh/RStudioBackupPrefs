@@ -1,7 +1,8 @@
 #' Import preferences from a GitHub url
 #'
-#' Pull (or clone) from your own git repository which
-#' should contain your backup preference files. The function will attempt to pull your current git repository by default.
+#' Pull (or clone) from your own git repository which should contain your backup
+#' preference files. The function will attempt to pull your current git
+#' repository by default.
 #'
 #' @param clone_git logical. Use this option if you haven't initiated a repository.
 #' @param git_url string. Allow to user the bypass the request of the git url to
