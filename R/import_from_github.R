@@ -3,7 +3,7 @@
 #' Pull (or clone) from your own git repository which
 #' should contain your backup preference files. The function will attempt to pull your current git repository by default.
 #'
-#' @param clone_git boolean. Use this option if you haven't initiated a repository.
+#' @param clone_git logical. Use this option if you haven't initiated a repository.
 #' @param git_url string. Allow to user the bypass the request of the git url to
 #'   directly clone the desired git url repository
 #' @param git_path string. Git path to the repository to pull from.

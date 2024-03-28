@@ -8,15 +8,15 @@
 #'   will then use those functions: `copy_files_to_local()` and
 #'   `upload_prefs_to_github()`
 #'
-#' @param github_backup boolean. Upload file to github.
+#' @param github_backup logical. Upload file to github.
 #' @param preference_path string. Path to local backup folder
 #' @param git_message string. Your git commit message. Default is "Backup of R
 #'   Studio preferences on `Sys.Date()`."
 #' @param repository string. Defaults to the current git repository. If you want
 #'   to upload to another repository, specify the path.
-#' @param copy_to_local boolean. Copy your .json files to local if TRUE. It will
+#' @param copy_to_local logical. Copy your .json files to local if TRUE. It will
 #'   copy the files to the repository folder if specified.
-#' @param open_backup_path boolean. Open the default backup folder for
+#' @param open_backup_path logical. Open the default backup folder for
 #'   convenience if TRUE.
 #'
 #' @return Backup rstudio_bindings.json, addins.json rstudio-bindings.json and
@@ -69,7 +69,3 @@ start_backup_prefs <-
 
     setwd(oldwd)
   }
-
-# TODO After backing up using github_backup=TRUE, it fails to commit + push
-# Proposition : Just asks the user to do a commit message or use a default one, then push it
-# Also add a "is it a git initiated repository check" and display a user message (also add it to the test)
