@@ -16,12 +16,12 @@ start_backup_prefs(
 \arguments{
 \item{preference_path}{string. Path to local backup folder}
 
-\item{github_backup}{boolean. Upload file to github.}
+\item{github_backup}{logical. Upload file to github.}
 
-\item{copy_to_local}{boolean. Copy your .json files to local if TRUE. It will
+\item{copy_to_local}{logical. Copy your .json files to local if TRUE. It will
 copy the files to the repository folder if specified.}
 
-\item{open_backup_path}{boolean. Open the default backup folder for
+\item{open_backup_path}{logical. Open the default backup folder for
 convenience if TRUE.}
 
 \item{git_message}{string. Your git commit message. Default is "Backup of R
