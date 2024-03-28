@@ -1,0 +1,11 @@
+# Check for CRAN specific requirements using rhub and save it in the results objects
+
+```{r}
+results <- rhub::check_for_cran()
+```
+
+# Get the summary of your results
+
+```{r}
+results$cran_summary()
+```
