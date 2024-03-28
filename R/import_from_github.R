@@ -21,27 +21,32 @@
 #' # The function will assume clone_git = TRUE
 #' import_from_github(git_url = "https://github.com/cran/dummies")
 #' }
-import_from_github <- function(clone_git = FALSE, git_url = NULL, git_path = ".") {
-  if (clone_git == TRUE || has_git_repository() == FALSE || !is.null(git_url)) {
-    if (!is.null(git_url)) {
-      repo <- git_url
-    } else {
-      list_github_repositories()
-      repo <- readline("Enter url of your git repository: ")
-    }
-    full_path <- file.path(git_path)
-    tryCatch(
-      {
-        clone_path <- gert::git_clone(repo, path = full_path)
-        return(clone_path)
-      },
-      error = function(e) {
-        message("Error occurred while cloning the repository:", e$message)
-        return(NULL)
+import_from_github <-
+  function(clone_git = FALSE,
+           git_url = NULL,
+           git_path = ".") {
+    if (clone_git == TRUE ||
+      has_git_repository() == FALSE || !is.null(git_url)) {
+      if (!is.null(git_url)) {
+        repo <- git_url
+      } else {
+        list_github_repositories()
+        repo <- readline("Enter url of your git repository: ")
       }
-    )
-  } else {
-    message(glue::glue("Pull {gert::git_find(git_path)} git repository"))
-    gert::git_pull(repo = git_path)
+      full_path <- file.path(git_path)
+      tryCatch(
+        {
+          clone_path <- gert::git_clone(repo, path = full_path)
+          return(clone_path)
+        },
+        error = function(e) {
+          message("Error occurred while cloning the repository:", e$message)
+          return(NULL)
+        }
+      )
+    }
+    # After cloning, always pull
+      message(glue::glue("Pull {gert::git_find(git_path)} git repository"))
+      gert::git_pull(repo = git_path)
+
   }
-}
