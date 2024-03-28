@@ -67,5 +67,5 @@ start_backup_prefs <-
       upload_prefs_to_github(preference_path, git_message, repository)
     }
 
-    setwd(oldwd)
+    on.exit(setwd(oldwd))
   }
