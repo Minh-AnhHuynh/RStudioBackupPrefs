@@ -1,4 +1,4 @@
-#' Start the import process from Github by default or your local json preference files
+#' Start the import process from GitHub by default or your local json preference files
 #'
 #' @description Import preferences by cloning a link or pulling from your GitHub. The
 #' function will start to pull from the currently active GitHub repository, then
@@ -31,8 +31,8 @@
 #' fs::file_create(file.path(temp_dir, "rstudio-prefs.json"))
 #' start_import_prefs(pull_github = FALSE, preference_path = temp_dir)
 #' \dontrun{
-#' # To import your preferences from Github:
-#' start_import_prefs()
+#' # To import your preferences from GitHub:
+#' start_import_prefs(preference_path = "R/rstudio_preferences)
 #' }
 start_import_prefs <-
   function(preference_path = "R/rstudio_preferences/",

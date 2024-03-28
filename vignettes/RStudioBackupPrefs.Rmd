@@ -59,7 +59,7 @@ librarian::shelf("Minh-AnhHuynh/RStudioBackupPrefs")
 # Quick Start
 
 The idea is to install this package on a new R project or machine,
-import your preferences from Github by first cloning the repository
+import your preferences from GitHub by first cloning the repository
 containing your rstudio preference files and copying them to the
 relevant rstudio preference folder.
 
@@ -69,7 +69,7 @@ repository for your RStudio settings.
 
 
 
-## Upload preferences to Github
+## Upload preferences to GitHub
 
 ``` r
 library(RStudioBackupPrefs)
@@ -85,19 +85,19 @@ start_backup_prefs(github_backup = TRUE, repository = "../MyRStudioPrefs")
 ```
 
 
-## Import preferences from Github
+## Import preferences from GitHub
 
-The function will pull from github by default, and will to **copy the files** to
+The function will pull from GitHub by default, and will to **copy the files** to
 the rstudio preference folder (import).
 
 
-### You have a new R project and want to import your preferences from Github
+### You have a new R project and want to import your preferences from GitHub
 
 You are required to clone the repository containing your preferences
-first. For convenience you can clone a github folder and copy with the
+first. For convenience you can clone a GitHub folder and copy with the
 same function.
 
-Use `clone_git = TRUE`, the function will ask for the git url and list the github repositories under the current git username
+Use `clone_git = TRUE`, the function will ask for the git url and list the GitHub repositories under the current git username
 
 
 ``` r
@@ -154,7 +154,7 @@ folder.
 
 
 
-# Github setup
+# GitHub setup
 
 To use the GitHub functionalities, you need to have an initiated
 repository. Simply initiate one with:
