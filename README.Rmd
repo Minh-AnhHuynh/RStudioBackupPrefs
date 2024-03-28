@@ -3,6 +3,6 @@ output: github_document
 ---
 
 
-```{r echo=FALSE, child='vignettes/my-vignette.Rmd'}
+```{r echo=FALSE, child="vignettes/RStudioBackupPrefs.Rmd"}
 ```
 
