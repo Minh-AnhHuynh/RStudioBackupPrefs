@@ -23,6 +23,9 @@ to just import your local files.}
 
 \item{git_url}{string. Allows to user the bypass the request of the git url to
 directly clone the desired git url repository to the working directory.}
+
+\item{git_path}{string. The path to clone the git repository. Default is the
+current working directory.}
 }
 \value{
 Cloned repository and/or preference files copied to RStudio's preference folder
@@ -59,7 +62,9 @@ url and clone it to the working directory
 start_import_prefs(preference_path = temp_dir, clone_git = TRUE)
 
 # Clone a specific repository in a specific folder
-start_import_prefs(preference_path = temp_dir, git_url = "https://github.com/cran/dummies/tree/master", git_path = "../MyRStudioPrefs")
+start_import_prefs(preference_path = temp_dir, git_url =
+"https://github.com/cran/dummies/tree/master", git_path =
+"../MyRStudioPrefs")
 }
 
 }
