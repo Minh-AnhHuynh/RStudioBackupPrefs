@@ -39,17 +39,18 @@
 #' start_import_prefs(pull_github = FALSE, preference_path = temp_dir)
 #'
 #' \dontrun{
-#' # Pull from GitHub from your current Git initiated repository
-#' start_import_prefs(preference_path = temp_dir)
-#'
+#' git_url = "dummy_git_url"
 #' # First time usage, clone the repository, the function will ask for the git
 #' url and clone it to the working directory
-#' start_import_prefs(preference_path = temp_dir, clone_git = TRUE)
+#' start_import_prefs(temp_dir, clone_git = TRUE)
 #'
 #' # Clone a specific repository in a specific folder
-#' start_import_prefs(preference_path = temp_dir, git_url =
-#' "https://github.com/cran/dummies/tree/master", git_path =
-#' "../MyRStudioPrefs")
+#' start_import_prefs(temp_dir, git_url = git_url, git_path
+#' ="../MyRStudioPrefs")
+#'
+#' # Pull GitHub and import your preference files from the preference folder
+#' start_import_prefs(temp_dir)
+#'
 #' }
 #'
 start_import_prefs <-
@@ -63,16 +64,13 @@ start_import_prefs <-
       # will still work
 
       # Assume the user wants to clone if entering a git url
+
       if (!is.null(git_url)) {
         clone_git <- TRUE
       }
       clone_path <-
         import_from_github(clone_git, git_url, git_path = git_path)
       preference_path <- paste0(clone_path, preference_path)
-      # if (clone_git == TRUE) {
-      #   preference_path <-
-      #     paste0(get_latest_directory(clone_path), preference_path)
-      # }
     }
     import_local_prefs(preference_path)
   }
