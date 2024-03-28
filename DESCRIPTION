@@ -1,11 +1,12 @@
 Type: Package
 Package: RStudioBackupPrefs
-Title: Easily Backup your RStudio Preferences and Import Them on from GitHub
+Title: Easily Backup your RStudio Preferences and Import Them on from
+    GitHub
 Version: 0.1.0
 Author: Minh-Anh Huynh
 Maintainer: Minh-Anh Huynh <minh-anh.huynh@etu.u-paris.fr>
 Description: The package provides a few short functions that automates
-    backup and import from local or GitHub files.
+    backup locally or to GitHub and import from local or GitHub files.
 License: MIT + file LICENSE
 URL: https://github.com/Minh-AnhHuynh/RStudioBackupPrefs,
     https://minh-anhhuynh.github.io/RStudioBackupPrefs/
@@ -17,17 +18,17 @@ Imports:
     glue,
     httr,
     rappdirs,
+    rstudioapi,
     stringr,
     usethis,
-    yesno,
-    rstudioapi
+    yesno
 Suggests: 
     assertthat,
     covr,
+    here,
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0),
-    here
+    testthat (>= 3.0.0)
 VignetteBuilder: 
     knitr
 Config/testthat/edition: 3
