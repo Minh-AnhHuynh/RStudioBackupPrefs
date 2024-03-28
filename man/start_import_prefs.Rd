@@ -2,7 +2,7 @@
 % Please edit documentation in R/start_import_prefs.R
 \name{start_import_prefs}
 \alias{start_import_prefs}
-\title{Start the import process from Github by default or your local json preference files}
+\title{Start the import process from GitHub by default or your local json preference files}
 \usage{
 start_import_prefs(
   preference_path = "R/rstudio_preferences/",
@@ -12,7 +12,7 @@ start_import_prefs(
 )
 }
 \arguments{
-\item{preference_path}{string. Input the file path where your preferences.json
+\item{preference_path}{string. Input the file path where your preferences json
 files are located.}
 
 \item{pull_github}{boolean. Use TRUE to pull or clone from GitHub, otherwise FALSE
@@ -47,7 +47,7 @@ fs::file_create(file.path(temp_dir, "r.snippets"))
 fs::file_create(file.path(temp_dir, "rstudio-prefs.json"))
 start_import_prefs(pull_github = FALSE, preference_path = temp_dir)
 \dontrun{
-# To import your preferences from Github:
+# To import your preferences from GitHub:
 start_import_prefs()
 }
 }
