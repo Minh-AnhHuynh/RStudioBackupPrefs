@@ -8,23 +8,24 @@ start_import_prefs(
   preference_path = "R/rstudio_preferences/",
   pull_github = TRUE,
   clone_git = FALSE,
-  git_url = NULL
+  git_url = NULL,
+  git_path = "."
 )
 }
 \arguments{
 \item{preference_path}{string. Input the file path where your preferences json
 files are located.}
 
-\item{pull_github}{boolean. Use TRUE to pull or clone from GitHub, otherwise FALSE
+\item{pull_github}{logical. Use TRUE to pull or clone from GitHub, otherwise FALSE
 to just import your local files.}
 
-\item{clone_git}{boolean. Default is FALSE. Clone git for first time usage. A convenience function to avoid doing it manually, but it's essentially the same as doing \code{gert::git_clone("github_url")}. It will clone the repository inside your current working directory.}
+\item{clone_git}{logical. Default is FALSE. Clone git for first time usage. A convenience function to avoid doing it manually, but it's essentially the same as doing \code{gert::git_clone("github_url")}. It will clone the repository inside your current working directory.}
 
 \item{git_url}{string. Allows to user the bypass the request of the git url to
 directly clone the desired git url repository to the working directory.}
 }
 \value{
-Clone repository or preference files copied to RStudio's preference folder
+Cloned repository and/or preference files copied to RStudio's preference folder
 }
 \description{
 Import preferences by cloning a link or pulling from your GitHub. The
@@ -45,9 +46,23 @@ fs::file_create(file.path(temp_dir, "addins.json"))
 fs::file_create(file.path(temp_dir, "rstudio_bindings.json"))
 fs::file_create(file.path(temp_dir, "r.snippets"))
 fs::file_create(file.path(temp_dir, "rstudio-prefs.json"))
+
+# Import from local files
 start_import_prefs(pull_github = FALSE, preference_path = temp_dir)
+
 \dontrun{
-# To import your preferences from GitHub:
-start_import_prefs()
+# Pull from GitHub from your current Git initiated repository
+start_import_prefs(preference_path = temp_dir)
+
+# First time usage, clone the repository, the function will ask for the git
+url and clone it to the working directory
+start_import_prefs(preference_path = temp_dir, clone_git = TRUE)
+
+# Clone a specific repository in a specific folder
+start_import_prefs(preference_path = temp_dir, git_url = "https://github.com/cran/dummies/tree/master", git_path = "../MyRStudioPrefs")
 }
+
+}
+\seealso{
+Use \code{\link[=list_github_repositories]{list_github_repositories()}} to list the current Git user's repositories.
 }
