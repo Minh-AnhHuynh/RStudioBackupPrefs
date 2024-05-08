@@ -58,7 +58,6 @@ get_current_git_username <- function() {
   if (is.na(current_username)) {
     current_username <- subset(config, name == "user.name" & level == "global")$value
   }
-
   # Print the current username
   cat("Current Git username:", current_username, "\n")
   return(current_username)
