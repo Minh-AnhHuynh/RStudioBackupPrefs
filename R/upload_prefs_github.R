@@ -48,7 +48,8 @@ upload_prefs_to_github <-
 
     # Initiate a repository and create a GitHub repository if no initiated repository
     if (has_git_repository() == FALSE && session_is_interactive == TRUE) {
-      if (yesno::yesno("There is no initiated git repository. Do you want to initiate one and create a new repository on Github?") == TRUE) {
+      if (yesno::yesno("There is no initiated git repository.
+                       Do you want to initiate one and create a new repository on Github?") == TRUE) {
         usethis::use_git()
         usethis::use_github()
       } else {
@@ -102,5 +103,5 @@ upload_prefs_to_github <-
     )
 
     # Go back to previous working directory if repository was changed
-    setwd(oldwd)
+    on.exit(setwd(oldwd))
   }

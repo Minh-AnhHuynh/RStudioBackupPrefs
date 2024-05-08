@@ -2,7 +2,7 @@
 % Please edit documentation in R/start_import_prefs.R
 \name{start_import_prefs}
 \alias{start_import_prefs}
-\title{Start the import process from GitHub by default or your local json preference files}
+\title{Start the import process from GitHub or your local json preference files}
 \usage{
 start_import_prefs(
   preference_path = "R/rstudio_preferences/",
@@ -13,16 +13,19 @@ start_import_prefs(
 )
 }
 \arguments{
-\item{preference_path}{string. Input the file path where your preferences json
-files are located.}
+\item{preference_path}{string. Input the file path where your preferences
+json files are located.}
 
-\item{pull_github}{logical. Use TRUE to pull or clone from GitHub, otherwise FALSE
-to just import your local files.}
+\item{pull_github}{logical. Use TRUE to pull or clone from GitHub, otherwise
+FALSE to just import your local files.}
 
-\item{clone_git}{logical. Default is FALSE. Clone git for first time usage. A convenience function to avoid doing it manually, but it's essentially the same as doing \code{gert::git_clone("github_url")}. It will clone the repository inside your current working directory.}
+\item{clone_git}{logical. Default is FALSE. Clone git for first time usage. A
+convenience function to avoid doing it manually, but it's essentially the
+same as doing \code{gert::git_clone("github_url")}. It will clone the repository
+inside your current working directory.}
 
-\item{git_url}{string. Allows to user the bypass the request of the git url to
-directly clone the desired git url repository to the working directory.}
+\item{git_url}{string. Allows to user the bypass the request of the git url
+to directly clone the desired git url repository to the working directory.}
 
 \item{git_path}{string. The path to clone the git repository. Default is the
 current working directory.}
@@ -31,14 +34,15 @@ current working directory.}
 Cloned repository and/or preference files copied to RStudio's preference folder
 }
 \description{
-Import preferences by cloning a link or pulling from your GitHub. The
-function will start to pull from the currently active GitHub repository, then
-will import the local .json preference files. The function will look for the
-specific .json files only, in the given file path. If cloning is chosen, the
-folder will be inside the working directory.
+Import preferences by cloning a link or pulling from your
+GitHub. The function will start to pull from the currently active GitHub
+repository, then will import the local .json preference files. The function
+will look for the specific .json files only, in the given file path. If
+cloning is chosen, the folder will be inside the working directory.
 }
 \details{
-Function wrapper of \code{import_from_github()} followed by \code{import_local_prefs()}
+Function wrapper of \code{import_from_github()} followed by
+\code{import_local_prefs()}
 }
 \examples{
 # To import your preferences from locally stored preferences files:

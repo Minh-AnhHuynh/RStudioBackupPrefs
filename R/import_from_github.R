@@ -1,7 +1,8 @@
 #' Import preferences from a GitHub url
 #'
-#' Pull (or clone) from your own git repository which
-#' should contain your backup preference files. The function will attempt to pull your current git repository by default.
+#' Pull (or clone) from your own git repository which should contain your backup
+#' preference files. The function will attempt to pull your current git
+#' repository by default.
 #'
 #' @param clone_git logical. Use this option if you haven't initiated a repository.
 #' @param git_url string. Allow to user the bypass the request of the git url to
@@ -24,7 +25,7 @@
 import_from_github <-
   function(clone_git = FALSE,
            git_url = NULL,
-           git_path = ".") {
+           git_path = NULL) {
     if (clone_git == TRUE ||
       has_git_repository() == FALSE || !is.null(git_url)) {
       if (!is.null(git_url)) {
@@ -33,7 +34,9 @@ import_from_github <-
         list_github_repositories()
         repo <- readline("Enter url of your git repository: ")
       }
-      full_path <- file.path(git_path)
+      if (!is.null(git_path)) {
+        full_path <- file.path(normalizePath(git_path), basename(repo))
+      }
       tryCatch(
         {
           clone_path <- gert::git_clone(repo, path = full_path)
@@ -46,7 +49,6 @@ import_from_github <-
       )
     }
     # After cloning, always pull
-      message(glue::glue("Pull {gert::git_find(git_path)} git repository"))
-      gert::git_pull(repo = git_path)
-
+    message(glue::glue("Pull {gert::git_find(git_path)} git repository"))
+    gert::git_pull(repo = git_path)
   }
