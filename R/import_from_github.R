@@ -35,7 +35,7 @@ import_from_github <-
         repo <- readline("Enter url of your git repository: ")
       }
       if (!is.null(git_path)) {
-        full_path <- file.path(normalizePath(git_path), basename(repo))
+        full_path <- file.path(normalizePath(git_path))
       }
       tryCatch(
         {
