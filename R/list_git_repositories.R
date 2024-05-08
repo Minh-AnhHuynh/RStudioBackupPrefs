@@ -18,7 +18,10 @@ list_github_repositories <- function(username = get_current_git_username) {
   # Set up the API endpoint0
   url <- paste0("https://api.github.com/users/", username, "/repos")
   # Make the HTTP request
-  response <- httr::GET(url)
+  response <- tryCatch(httr::GET(url),
+                       error = function(e) {
+                         return("Error in retrieving repository, is your git user.name valid?")
+                       })
 
   # Check if the request was successful
   if (httr::http_type(response) == "application/json") {
@@ -50,7 +53,12 @@ list_github_repositories <- function(username = get_current_git_username) {
 get_current_git_username <- function() {
   # Run git config command to get the current user.name
   config <- gert::git_config()
-  current_username <- config[config$name == "user.name", ]$value
+  # Select the current local user.name first, and if not local select the global one
+  current_username <- subset(config, name == "user.name" & level == "local")$value
+  if (is.na(current_username)) {
+    current_username <- subset(config, name == "user.name" & level == "global")$value
+  }
+
   # Print the current username
   cat("Current Git username:", current_username, "\n")
   return(current_username)
