@@ -25,7 +25,7 @@
 import_from_github <-
   function(clone_git = FALSE,
            git_url = NULL,
-           git_path = ".") {
+           git_path = NULL) {
     if (clone_git == TRUE ||
       has_git_repository() == FALSE || !is.null(git_url)) {
       if (!is.null(git_url)) {
@@ -34,7 +34,9 @@ import_from_github <-
         list_github_repositories()
         repo <- readline("Enter url of your git repository: ")
       }
-      full_path <- file.path(git_path)
+      if (!is.null(git_path)) {
+        full_path <- file.path(normalizePath(git_path), basename(repo))
+      }
       tryCatch(
         {
           clone_path <- gert::git_clone(repo, path = full_path)
@@ -47,7 +49,6 @@ import_from_github <-
       )
     }
     # After cloning, always pull
-      message(glue::glue("Pull {gert::git_find(git_path)} git repository"))
-      gert::git_pull(repo = git_path)
-
+    message(glue::glue("Pull {gert::git_find(git_path)} git repository"))
+    gert::git_pull(repo = git_path)
   }
