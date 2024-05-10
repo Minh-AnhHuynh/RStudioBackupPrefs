@@ -48,6 +48,7 @@ import_from_github <-
         }
       )
     }
+    if (is.null(git_path)) git_path <- "."  # Default to current working directory
     # After cloning, always pull
     message(glue::glue("Pull {gert::git_find(git_path)} git repository"))
     gert::git_pull(repo = git_path)
