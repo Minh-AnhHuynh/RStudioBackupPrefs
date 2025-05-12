@@ -7,7 +7,6 @@
 #' @param repository string. Defaults to the current git repository.
 #'
 #' @return Upload your prefs files to currently active git repository.
-#' @export
 #' @noRd
 #' @examples
 #'
