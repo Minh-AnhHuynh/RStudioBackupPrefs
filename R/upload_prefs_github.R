@@ -6,7 +6,8 @@
 #' @param preference_path string. Relative file path name
 #' @param repository string. Defaults to the current git repository.
 #'
-#' @return Upload your .json files to currently active git repository.
+#' @return Upload your prefs files to currently active git repository.
+#' @export
 #' @noRd
 #' @examples
 #'
@@ -81,11 +82,14 @@ upload_prefs_to_github <-
         "rstudio_bindings.json",
         "addins.json",
         "r.snippets",
-        "editor_bindings.json"
+        "editor_bindings.json",
+        "user_dictionary"
       )
     list_prefs <- list.files(preference_path)
     filtered_files <- list_prefs[list_prefs %in% prefs_files]
-    filtered_files <- file.path(preference_path, filtered_files)
+    filtered_files <- fs::path(preference_path, filtered_files)
+    # fs::path prevents double slashes "//" in the path which bugs out
+    # gert::git_add afterwards
     gert::git_add(filtered_files)
 
     # Commit changes
