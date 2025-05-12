@@ -61,7 +61,7 @@ start_import_prefs <-
            pull_github = TRUE,
            clone_git = FALSE,
            git_url = NULL,
-           git_path = ".") {
+           git_path = NULL) {
     if (pull_github == TRUE) {
       # Even if preference path is not in the root of a git folder, git pull
       # will still work
