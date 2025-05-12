@@ -9,7 +9,7 @@ start_import_prefs(
   pull_github = TRUE,
   clone_git = FALSE,
   git_url = NULL,
-  git_path = "."
+  git_path = NULL
 )
 }
 \arguments{
