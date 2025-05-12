@@ -55,7 +55,7 @@ get_current_git_username <- function() {
   config <- gert::git_config()
   # Select the current local user.name first, and if not local select the global one
   current_username <- subset(config, name == "user.name" & level == "local")$value
-  if (is.na(current_username)) {
+  if (length(current_username) == 0) {
     current_username <- subset(config, name == "user.name" & level == "global")$value
   }
   # Print the current username
