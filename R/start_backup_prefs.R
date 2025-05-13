@@ -61,6 +61,7 @@ start_backup_prefs <-
     setwd(repository)
     if (copy_to_local == TRUE || github_backup == TRUE) {
       copy_files_to_local(preference_path)
+      copy_user_dictionary(preference_path)
     }
 
     if (github_backup == TRUE) {

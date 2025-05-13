@@ -45,6 +45,17 @@ check_json_existence <- function(preference_path = ".") {
   return(local_files)
 }
 
+#' Internal function to copy user dictionary to the local folder
+#'
+#' @noRd
+#' @examples get_user_dictionary_file()
+get_user_dictionary_file <- function() {
+  # Get the user dictionary path
+  user_dic_path <- rappdirs::user_data_dir("RStudio/monitored/lists", appauthor = NULL)
+  user_dictionary <- file.path(user_dic_path, "user_dictionary")
+  return(user_dictionary)
+}
+
 
 
 #' Simple function to verify if there is an error (TRUE) or not (FALSE)

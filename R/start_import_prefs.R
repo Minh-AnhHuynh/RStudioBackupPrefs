@@ -76,4 +76,5 @@ start_import_prefs <-
       preference_path <- paste0(clone_path, preference_path)
     }
     import_local_prefs(preference_path)
+    import_user_dictionary(preference_path)
   }
