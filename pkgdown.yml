@@ -1,10 +1,9 @@
 pandoc: 3.1.11
-pkgdown: 2.0.9
+pkgdown: 2.1.2
 pkgdown_sha: ~
 articles:
   RStudioBackupPrefs: RStudioBackupPrefs.html
-last_built: 2024-05-10T21:45Z
+last_built: 2025-05-13T17:34Z
 urls:
   reference: https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference
   article: https://minh-anhhuynh.github.io/RStudioBackupPrefs/articles
-

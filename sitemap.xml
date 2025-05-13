@@ -1,36 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/404.html</loc>
-  </url>
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/articles/RStudioBackupPrefs.html</loc>
-  </url>
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/index.html</loc>
-  </url>
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/list_github_repositories.html</loc>
-  </url>
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/start_backup_prefs.html</loc>
-  </url>
-  <url>
-    <loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/start_import_prefs.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/404.html</loc></url>
+<url><loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/LICENSE-text.html</loc></url>
+<url><loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/LICENSE.html</loc></url>
+<url><loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/articles/RStudioBackupPrefs.html</loc></url>
+<url><loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/articles/index.html</loc></url>
+<url><loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/authors.html</loc></url>
+<url><loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/index.html</loc></url>
+<url><loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/index.html</loc></url>
+<url><loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/list_github_repositories.html</loc></url>
+<url><loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/start_backup_prefs.html</loc></url>
+<url><loc>https://minh-anhhuynh.github.io/RStudioBackupPrefs/reference/start_import_prefs.html</loc></url>
 </urlset>
+
